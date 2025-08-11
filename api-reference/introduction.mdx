@@ -1,33 +1,142 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: 'API Introduction'
+description: 'Get started with the Opsmatic API for programmatic access to your monitoring data'
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+## Overview
 
-## Welcome
+The Opsmatic API provides programmatic access to your workflow monitoring data, analytics, and platform management features. Build custom integrations, create automated reports, and extend Opsmatic's functionality to fit your unique needs.
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+## Base URL
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+```
+https://api.opsmatic.com/v1
+```
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+All API requests require authentication using an API key:
+
+```bash
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+     https://api.opsmatic.com/v1/connections
+```
+
+### Getting Your API Key
+
+<Steps>
+  <Step title="Access Settings">
+    Go to your Profile Settings in the Opsmatic dashboard
+  </Step>
+  <Step title="Navigate to API">
+    Click on the "API" tab in your settings
+  </Step>
+  <Step title="Generate Key">
+    Click "Generate API Key" and copy the generated key
+  </Step>
+  <Step title="Store Securely">
+    Store your API key securely - it won't be shown again
+  </Step>
+</Steps>
+
+## Core Endpoints
+
+<CardGroup cols={2}>
+  <Card title="Connections" icon="plug" href="/api-reference/connections">
+    Manage your n8n and Make.com connections programmatically
+  </Card>
+  <Card title="Analytics" icon="chart-line" href="/api-reference/analytics">
+    Access execution logs, performance metrics, and availability data
+  </Card>
+  <Card title="Organizations" icon="users" href="/api-reference/organizations">
+    Manage team organizations and member permissions
+  </Card>
+  <Card title="Workflows" icon="workflow">
+    Retrieve workflow information and execution history
+  </Card>
+</CardGroup>
+
+## Rate Limits
+
+- **Free Plan**: 100 requests per hour
+- **Pro Plan**: 1,000 requests per hour  
+- **Enterprise**: Custom limits
+
+Rate limit headers are included in all responses:
+
+```http
+X-RateLimit-Limit: 1000
+X-RateLimit-Remaining: 999
+X-RateLimit-Reset: 1640995200
+```
+
+## Response Format
+
+All API responses use JSON format:
 
 ```json
-"security": [
-  {
-    "bearerAuth": []
+{
+  "success": true,
+  "data": {
+    // Response data
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 50,
+    "total": 100
   }
-]
+}
+```
+
+## Error Handling
+
+Errors return appropriate HTTP status codes with detailed error information:
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "INVALID_API_KEY",
+    "message": "The provided API key is invalid or expired",
+    "details": {}
+  }
+}
+```
+
+## Common Status Codes
+
+| Status Code | Description |
+|-------------|-------------|
+| 200 | Success |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 429 | Rate Limited |
+| 500 | Internal Server Error |
+
+## Quick Start Example
+
+Get your connections:
+
+```bash
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+     https://api.opsmatic.com/v1/connections
+```
+
+Response:
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": "conn_123",
+      "service_type": "n8n",
+      "service_name": "Production n8n",
+      "status": "active",
+      "created_at": "2024-01-01T00:00:00Z"
+    }
+  ]
+}
 ```

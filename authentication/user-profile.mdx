@@ -1,0 +1,338 @@
+---
+title: 'User Profile Management'
+description: 'Manage your personal information and account settings'
+---
+
+## Accessing Your Profile
+
+Your user profile contains your personal information, preferences, and account settings. To access it:
+
+1. Click your profile avatar in the top-right corner of any page
+2. Select **"Profile Settings"** from the dropdown menu
+3. You'll be taken to your profile management page
+
+<Frame>
+  <img src="/images/profile-settings.png" alt="Profile settings page" />
+</Frame>
+
+## Profile Information
+
+### Basic Information
+
+Your profile includes the following information:
+
+<AccordionGroup>
+  <Accordion title="Personal Details">
+    - **First Name**: Your given name
+    - **Last Name**: Your surname
+    - **Email Address**: Primary email for your account
+    - **Profile Picture**: Avatar displayed throughout Opsmatic
+  </Accordion>
+  
+  <Accordion title="Account Information">
+    - **User ID**: Unique identifier for your account
+    - **Join Date**: When you created your Opsmatic account
+    - **Last Login**: Your most recent login timestamp
+    - **Account Status**: Active, pending verification, etc.
+  </Accordion>
+  
+  <Accordion title="Onboarding Status">
+    - **Profile Completion**: Whether you've completed initial setup
+    - **First Connection**: If you've added any automation platforms
+    - **Organization Membership**: Teams you've joined or created
+  </Accordion>
+</AccordionGroup>
+
+## Editing Your Profile
+
+### Updating Personal Information
+
+<Steps>
+  <Step title="Navigate to Profile Settings">
+    Click your avatar > Profile Settings
+  </Step>
+  <Step title="Select Personal Info Tab">
+    Click on the "Personal Info" tab if not already selected
+  </Step>
+  <Step title="Edit Fields">
+    Click on any field to edit your information:
+    - First and last name
+    - Email address (requires verification)
+    - Phone number (optional)
+  </Step>
+  <Step title="Save Changes">
+    Click "Save Changes" to update your profile
+  </Step>
+</Steps>
+
+### Changing Your Profile Picture
+
+You can update your profile picture in several ways:
+
+<Tabs>
+  <Tab title="Upload Image">
+    1. Click on your current profile picture
+    2. Select "Upload Image"
+    3. Choose an image file (JPG, PNG, GIF)
+    4. Crop and resize as needed
+    5. Click "Save"
+  </Tab>
+  
+  <Tab title="Social Provider Sync">
+    If you're using social login, your profile picture will automatically sync from:
+    - Google account photo
+    - GitHub avatar
+    
+    To force a sync:
+    1. Go to Security > Connected Accounts
+    2. Click "Sync" next to your social provider
+  </Tab>
+  
+  <Tab title="Gravatar">
+    Opsmatic also supports Gravatar:
+    1. Create/update your Gravatar at gravatar.com
+    2. Use the same email address as your Opsmatic account
+    3. Your Gravatar will automatically appear
+  </Tab>
+</Tabs>
+
+## Account Settings
+
+### Email Management
+
+<Warning>
+Changing your email address requires verification and may affect your social login connections.
+</Warning>
+
+**To change your email:**
+
+<Steps>
+  <Step title="Go to Personal Info">
+    Navigate to Profile Settings > Personal Info
+  </Step>
+  <Step title="Click Edit Email">
+    Click the edit icon next to your email address
+  </Step>
+  <Step title="Enter New Email">
+    Provide your new email address
+  </Step>
+  <Step title="Verify Email">
+    Check your new email for a verification link
+  </Step>
+  <Step title="Confirm Change">
+    Click the verification link to complete the change
+  </Step>
+</Steps>
+
+### Password Management
+
+*Only applicable if you signed up with email/password*
+
+<AccordionGroup>
+  <Accordion title="Changing Your Password">
+    1. Go to Profile Settings > Security
+    2. Click "Change Password"
+    3. Enter your current password
+    4. Create a new strong password
+    5. Confirm the new password
+    6. Click "Update Password"
+  </Accordion>
+  
+  <Accordion title="Password Requirements">
+    Your password must meet these requirements:
+    - At least 8 characters long
+    - Contains uppercase and lowercase letters
+    - Includes at least one number
+    - Contains at least one special character
+    - Not a commonly used password
+  </Accordion>
+  
+  <Accordion title="Password Reset">
+    If you forgot your password:
+    1. Go to the login page
+    2. Click "Forgot Password?"
+    3. Enter your email address
+    4. Check your email for reset instructions
+    5. Follow the link to create a new password
+  </Accordion>
+</AccordionGroup>
+
+## Privacy Settings
+
+### Profile Visibility
+
+Control who can see your profile information:
+
+<CardGroup cols={2}>
+  <Card title="Organization Members" icon="users">
+    Team members in your organizations can see your basic profile (name, avatar)
+  </Card>
+  <Card title="Private Information" icon="lock">
+    Your email and personal details are always private unless explicitly shared
+  </Card>
+</CardGroup>
+
+### Data Management
+
+<Tabs>
+  <Tab title="Data Export">
+    You can export your personal data:
+    1. Go to Profile Settings > Privacy
+    2. Click "Export My Data"
+    3. Choose export format (JSON, CSV)
+    4. Receive download link via email
+  </Tab>
+  
+  <Tab title="Account Deletion">
+    To permanently delete your account:
+    1. Go to Profile Settings > Privacy
+    2. Click "Delete Account"
+    3. Enter your password to confirm
+    4. Select reason for deletion (optional)
+    5. Confirm permanent deletion
+    
+    <Warning>
+    Account deletion is permanent and cannot be undone. All your data will be permanently removed.
+    </Warning>
+  </Tab>
+</Tabs>
+
+## Notification Preferences
+
+### Email Notifications
+
+Control what emails you receive from Opsmatic:
+
+<AccordionGroup>
+  <Accordion title="Account Notifications">
+    - Welcome emails
+    - Security alerts
+    - Password changes
+    - Account verification
+  </Accordion>
+  
+  <Accordion title="Platform Notifications">
+    - Connection status changes
+    - Workflow execution summaries
+    - Platform availability alerts
+    - Performance reports
+  </Accordion>
+  
+  <Accordion title="Organization Notifications">
+    - Team invitations
+    - Member activity
+    - Organization updates
+    - Billing notifications
+  </Accordion>
+  
+  <Accordion title="Marketing Communications">
+    - Product updates
+    - Feature announcements
+    - Tips and tutorials
+    - Newsletter (optional)
+  </Accordion>
+</AccordionGroup>
+
+### Managing Notifications
+
+<Steps>
+  <Step title="Access Notification Settings">
+    Go to Profile Settings > Notifications
+  </Step>
+  <Step title="Choose Categories">
+    Toggle different notification categories on/off
+  </Step>
+  <Step title="Set Frequency">
+    Choose how often you want to receive certain notifications:
+    - Immediately
+    - Daily digest
+    - Weekly summary
+    - Never
+  </Step>
+  <Step title="Save Preferences">
+    Click "Save Notification Preferences"
+  </Step>
+</Steps>
+
+## Organization Context
+
+Your profile adapts based on your organization memberships:
+
+### Organization Switching
+
+If you're a member of multiple organizations:
+
+1. Click the organization dropdown in the top navigation
+2. Select the organization you want to work with
+3. Your dashboard and connections will update to show that organization's data
+
+### Role-Based Access
+
+Your profile shows different options based on your role:
+
+<CardGroup cols={3}>
+  <Card title="Owner" icon="crown">
+    Full access to organization settings, billing, and member management
+  </Card>
+  <Card title="Admin" icon="shield">
+    Manage connections, invite members, view analytics
+  </Card>
+  <Card title="Member" icon="user">
+    View dashboards and analytics, limited connection management
+  </Card>
+</CardGroup>
+
+## Troubleshooting Profile Issues
+
+### Common Problems
+
+<AccordionGroup>
+  <Accordion title="Profile Picture Not Updating">
+    **Solutions:**
+    - Clear browser cache
+    - Wait up to 10 minutes for CDN refresh
+    - Try uploading a different image format
+    - Check image file size (max 5MB)
+  </Accordion>
+  
+  <Accordion title="Email Change Not Working">
+    **Solutions:**
+    - Check spam folder for verification email
+    - Ensure new email isn't already in use
+    - Try a different email provider
+    - Contact support if verification link expires
+  </Accordion>
+  
+  <Accordion title="Can't Access Profile Settings">
+    **Solutions:**
+    - Refresh the page
+    - Log out and log back in
+    - Clear browser cookies
+    - Try incognito/private browsing mode
+  </Accordion>
+</AccordionGroup>
+
+## Security Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Keep Information Current" icon="refresh">
+    Regularly update your profile information, especially email addresses
+  </Card>
+  <Card title="Review Access" icon="eye">
+    Periodically check your connected accounts and organization memberships
+  </Card>
+  <Card title="Strong Authentication" icon="shield">
+    Enable 2FA and use strong passwords for enhanced security
+  </Card>
+  <Card title="Monitor Activity" icon="activity">
+    Check your account activity log for suspicious behavior
+  </Card>
+</CardGroup>
+
+## Need Help?
+
+If you need assistance with your profile:
+
+<Card title="Contact Support" icon="headset" href="/troubleshooting/support">
+  Our support team can help with profile issues, account recovery, and data management questions.
+</Card>

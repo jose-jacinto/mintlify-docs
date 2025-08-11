@@ -1,0 +1,424 @@
+---
+title: 'n8n Setup Guide'
+description: 'Connect your n8n instances to Opsmatic for workflow monitoring'
+---
+
+## Overview
+
+n8n is a powerful, open-source workflow automation platform that can be self-hosted or used via n8n Cloud. Opsmatic can monitor both deployment types, providing comprehensive analytics and performance insights for your n8n workflows.
+
+<Frame>
+  <img src="/images/n8n-connection-setup.png" alt="n8n connection setup" />
+</Frame>
+
+## Prerequisites
+
+Before connecting n8n to Opsmatic, ensure you have:
+
+<CardGroup cols={2}>
+  <Card title="n8n Instance" icon="server">
+    Either self-hosted n8n or n8n Cloud account with admin access
+  </Card>
+  <Card title="API Access" icon="key">
+    Ability to create API keys in your n8n instance
+  </Card>
+</CardGroup>
+
+## Supported n8n Versions
+
+Opsmatic supports:
+- **n8n Cloud**: All current versions
+- **Self-hosted n8n**: Version 0.190.0 and newer
+- **Docker deployments**: All supported n8n Docker images
+- **Kubernetes deployments**: Compatible with n8n Helm charts
+
+## Creating an n8n API Key
+
+### For n8n Cloud
+
+<Steps>
+  <Step title="Access Settings">
+    Log into your n8n Cloud instance and click on **Settings** in the left sidebar
+  </Step>
+  <Step title="Navigate to API Keys">
+    Click on **"API Keys"** in the settings menu
+  </Step>
+  <Step title="Create New Key">
+    Click **"Create API Key"** button
+  </Step>
+  <Step title="Configure Key">
+    - **Name**: Enter "Opsmatic Monitoring" or similar
+    - **Permissions**: Select appropriate permissions (see below)
+    - **Expiration**: Set to "Never" or long-term date
+  </Step>
+  <Step title="Copy Key">
+    Copy the generated API key immediately (it won't be shown again)
+  </Step>
+</Steps>
+
+### For Self-Hosted n8n
+
+<Steps>
+  <Step title="Access Admin Panel">
+    Navigate to your n8n instance URL and log in as an admin user
+  </Step>
+  <Step title="Open Settings">
+    Click the **Settings** gear icon in the left sidebar
+  </Step>
+  <Step title="Navigate to API Keys">
+    Select **"API Keys"** from the settings menu
+  </Step>
+  <Step title="Generate Key">
+    Click **"Create API Key"** and configure:
+    - **Label**: "Opsmatic Integration"
+    - **Permissions**: Read access to workflows and executions
+  </Step>
+  <Step title="Save Key">
+    Copy the API key to a secure location
+  </Step>
+</Steps>
+
+## Required API Permissions
+
+For optimal monitoring, your n8n API key should have these permissions:
+
+<AccordionGroup>
+  <Accordion title="Essential Permissions (Required)">
+    - **Workflow Read**: View workflow definitions and metadata
+    - **Execution Read**: Access execution logs and history
+    - **Instance Read**: Get basic instance information
+  </Accordion>
+  
+  <Accordion title="Recommended Permissions">
+    - **Workflow List**: Enumerate all available workflows
+    - **User Read**: Access user information for execution context
+    - **Credential Read**: Limited credential metadata (not values)
+  </Accordion>
+  
+  <Accordion title="Optional Permissions">
+    - **Settings Read**: Instance configuration for advanced analytics
+    - **Tags Read**: Workflow categorization and organization
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+**Security Note**: Only grant the minimum permissions necessary. Opsmatic never needs write access to your workflows or credentials.
+</Warning>
+
+## Adding n8n Connection in Opsmatic
+
+### Step-by-Step Setup
+
+<Steps>
+  <Step title="Navigate to Connections">
+    In Opsmatic, go to **Connections** from the sidebar menu
+  </Step>
+  <Step title="Add New Connection">
+    Click **"Add Connection"** button
+  </Step>
+  <Step title="Select n8n">
+    Choose **n8n** from the platform options
+  </Step>
+  <Step title="Enter Connection Details">
+    Fill in the required information:
+    
+    <AccordionGroup>
+      <Accordion title="Basic Information">
+        - **Service Name**: Descriptive name (e.g., "Production n8n Server")
+        - **Organization**: Choose personal or organization context
+      </Accordion>
+      
+      <Accordion title="Connection Settings">
+        - **Base URL**: Your n8n instance URL
+        - **API Key**: The API key you created earlier
+      </Accordion>
+    </AccordionGroup>
+  </Step>
+  <Step title="Test Connection">
+    Click **"Test Connection"** to verify the setup
+  </Step>
+  <Step title="Save Connection">
+    If the test succeeds, click **"Save Connection"**
+  </Step>
+</Steps>
+
+### Connection Configuration Details
+
+<Tabs>
+  <Tab title="n8n Cloud">
+    **Base URL Format:**
+    ```
+    https://[your-subdomain].app.n8n.cloud
+    ```
+    
+    **Example:**
+    ```
+    https://mycompany.app.n8n.cloud
+    ```
+    
+    **API Key Format:**
+    - Starts with `n8n_api_`
+    - Followed by random characters
+    - Example: `n8n_api_abc123def456ghi789`
+  </Tab>
+  
+  <Tab title="Self-Hosted">
+    **Base URL Examples:**
+    ```
+    https://n8n.mycompany.com
+    https://automation.example.org
+    http://localhost:5678 (development only)
+    ```
+    
+    **Docker Setup:**
+    If using Docker, ensure:
+    - n8n is accessible on the specified port
+    - SSL certificate is properly configured
+    - API endpoints are enabled
+    
+    **Firewall Considerations:**
+    - Allow HTTPS (443) or HTTP (custom port) traffic
+    - Ensure Opsmatic can reach your n8n instance
+    - Consider IP allowlisting if needed
+  </Tab>
+</Tabs>
+
+## Verifying the Connection
+
+### Connection Test Results
+
+When you test your n8n connection, you should see:
+
+<CardGroup cols={2}>
+  <Card title="Successful Connection" icon="check-circle">
+    - ✅ API authentication successful
+    - ✅ Workflow count retrieved
+    - ✅ Instance version detected
+    - ✅ Response time measured
+  </Card>
+  <Card title="Connection Information" icon="info">
+    - n8n version number
+    - Number of accessible workflows
+    - Response time in milliseconds
+    - Instance type (cloud/self-hosted)
+  </Card>
+</CardGroup>
+
+### Troubleshooting Connection Issues
+
+<AccordionGroup>
+  <Accordion title="Authentication Failed">
+    **Error**: "Invalid API key" or 401 Unauthorized
+    
+    **Solutions:**
+    - Verify API key is copied correctly (no extra spaces)
+    - Check if API key has expired
+    - Ensure API key has proper permissions
+    - Re-generate API key if necessary
+  </Accordion>
+  
+  <Accordion title="Cannot Reach Server">
+    **Error**: "Connection timeout" or "Server not found"
+    
+    **Solutions:**
+    - Verify Base URL is correct and accessible
+    - Check if n8n instance is running
+    - Test URL in browser to confirm accessibility
+    - Check firewall and network settings
+  </Accordion>
+  
+  <Accordion title="Permission Denied">
+    **Error**: "Access denied" or 403 Forbidden
+    
+    **Solutions:**
+    - Review API key permissions
+    - Ensure user account has admin access
+    - Check if API access is enabled in n8n settings
+    - Verify organization/team permissions
+  </Accordion>
+  
+  <Accordion title="SSL/TLS Issues">
+    **Error**: "Certificate error" or "SSL handshake failed"
+    
+    **Solutions:**
+    - Ensure valid SSL certificate on n8n instance
+    - Check certificate expiration
+    - For self-signed certificates, contact support
+    - Verify HTTPS configuration
+  </Accordion>
+</AccordionGroup>
+
+## What Data is Monitored
+
+Once connected, Opsmatic will monitor:
+
+### Workflow Information
+<AccordionGroup>
+  <Accordion title="Workflow Metadata">
+    - Workflow names and unique identifiers
+    - Creation and modification timestamps
+    - Active/inactive status
+    - Workflow complexity (node count)
+    - Tags and categories
+  </Accordion>
+  
+  <Accordion title="Execution Data">
+    - Execution start and end times
+    - Success/failure status
+    - Execution duration
+    - Error details and stack traces
+    - Data processed (size and volume)
+  </Accordion>
+  
+  <Accordion title="Performance Metrics">
+    - Average execution time per workflow
+    - Success rate over time
+    - Resource usage patterns
+    - Peak execution periods
+    - Error frequency and types
+  </Accordion>
+</AccordionGroup>
+
+### Instance Health
+<AccordionGroup>
+  <Accordion title="Availability Monitoring">
+    - API response time tracking
+    - Uptime/downtime detection
+    - Connection stability metrics
+    - Service availability percentage
+  </Accordion>
+  
+  <Accordion title="Performance Tracking">
+    - Request/response latency
+    - API endpoint responsiveness
+    - Data synchronization success
+    - System load indicators
+  </Accordion>
+</AccordionGroup>
+
+## Advanced Configuration
+
+### Custom Sync Settings
+
+For high-volume n8n instances, you can configure:
+
+<Tabs>
+  <Tab title="Sync Frequency">
+    **Default**: Every 15 minutes
+    **Options**:
+    - Every 5 minutes (high activity)
+    - Every 30 minutes (standard)
+    - Hourly (low activity)
+    - Custom intervals
+  </Tab>
+  
+  <Tab title="Data Filters">
+    **Workflow Filtering**:
+    - Include/exclude specific workflows
+    - Filter by workflow tags
+    - Environment-based filtering
+    
+    **Execution Filtering**:
+    - Date range limitations
+    - Status-based filtering
+    - Performance threshold filtering
+  </Tab>
+  
+  <Tab title="Rate Limiting">
+    **API Rate Limits**:
+    - Respect n8n API quotas
+    - Configurable request throttling
+    - Automatic backoff on limits
+    - Priority queue for critical data
+  </Tab>
+</Tabs>
+
+### Webhook Integration (Advanced)
+
+For real-time monitoring, set up webhooks:
+
+<Warning>
+Webhook integration requires additional setup and is recommended for advanced users only.
+</Warning>
+
+<Steps>
+  <Step title="Enable Webhooks in n8n">
+    Configure webhook endpoints in your n8n instance settings
+  </Step>
+  <Step title="Configure Opsmatic Webhook URL">
+    Use the webhook URL provided in your connection settings
+  </Step>
+  <Step title="Set Trigger Events">
+    Configure webhooks to trigger on:
+    - Workflow execution start/end
+    - Execution failures
+    - System events
+  </Step>
+  <Step title="Test Webhook Delivery">
+    Verify webhook payloads are received correctly
+  </Step>
+</Steps>
+
+## Security Best Practices
+
+<CardGroup cols={2}>
+  <Card title="API Key Management" icon="key">
+    - Create dedicated API keys for Opsmatic
+    - Use descriptive names for easy identification
+    - Regularly rotate API keys
+    - Never share keys or commit them to version control
+  </Card>
+  <Card title="Network Security" icon="shield">
+    - Use HTTPS for all connections
+    - Implement IP allowlisting if possible
+    - Monitor API key usage and access
+    - Set appropriate permissions (read-only)
+  </Card>
+</CardGroup>
+
+## Monitoring Multiple n8n Instances
+
+If you have multiple n8n deployments:
+
+### Organization Strategy
+<AccordionGroup>
+  <Accordion title="Environment Separation">
+    Create separate connections for:
+    - **Production**: `Production n8n - Main`
+    - **Staging**: `Staging n8n - Testing`
+    - **Development**: `Dev n8n - Local`
+  </Accordion>
+  
+  <Accordion title="Geographic Distribution">
+    For global deployments:
+    - **US East**: `n8n US-East Production`
+    - **Europe**: `n8n EU Production`
+    - **Asia Pacific**: `n8n APAC Production`
+  </Accordion>
+  
+  <Accordion title="Client/Project Separation">
+    For agencies or multiple projects:
+    - **Client A**: `Client A - Production n8n`
+    - **Project X**: `Project X - Automation Hub`
+    - **Internal**: `Internal Tools - n8n`
+  </Accordion>
+</AccordionGroup>
+
+## What's Next?
+
+After successfully connecting your n8n instance:
+
+<CardGroup cols={2}>
+  <Card title="Test Your Connection" icon="check" href="/connections/testing-connections">
+    Learn how to properly test and validate your n8n connection
+  </Card>
+  <Card title="View Analytics" icon="chart-line" href="/analytics/workflow-analytics">
+    Start monitoring your n8n workflow performance and analytics
+  </Card>
+  <Card title="Set up Make.com" icon="make" href="/connections/make-setup">
+    Add Make.com connections for comprehensive automation monitoring
+  </Card>
+  <Card title="Dashboard Overview" icon="gauge" href="/dashboard/overview">
+    Explore your monitoring dashboard with n8n data
+  </Card>
+</CardGroup>

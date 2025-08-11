@@ -1,0 +1,455 @@
+---
+title: 'Testing Connections'
+description: 'Best practices for testing and validating your platform connections'
+---
+
+## Why Test Connections?
+
+Regular connection testing ensures your automation monitoring remains reliable and accurate. Testing helps you:
+
+<CardGroup cols={2}>
+  <Card title="Verify Connectivity" icon="check-circle">
+    Confirm your platforms are accessible and responding correctly
+  </Card>
+  <Card title="Validate Credentials" icon="key">
+    Ensure API keys and tokens are still valid and have proper permissions
+  </Card>
+  <Card title="Monitor Performance" icon="gauge">
+    Track response times and identify potential performance issues
+  </Card>
+  <Card title="Prevent Downtime" icon="shield">
+    Proactively identify issues before they impact your monitoring
+  </Card>
+</CardGroup>
+
+## Types of Connection Tests
+
+### Manual Testing
+
+Perform on-demand tests when needed:
+
+<Steps>
+  <Step title="Navigate to Connections">
+    Go to the Connections page in Opsmatic
+  </Step>
+  <Step title="Find Your Connection">
+    Locate the connection you want to test
+  </Step>
+  <Step title="Click Test Button">
+    Click the "Test" button on the connection card
+  </Step>
+  <Step title="Review Results">
+    Analyze the test results and address any issues
+  </Step>
+</Steps>
+
+### Automatic Health Checks
+
+Opsmatic automatically tests connections:
+
+<AccordionGroup>
+  <Accordion title="Schedule">
+    - Every 5 minutes for active connections
+    - Every 15 minutes for inactive connections
+    - Increased frequency during peak hours
+    - Custom intervals for enterprise users
+  </Accordion>
+  
+  <Accordion title="Health Indicators">
+    - Response time monitoring
+    - Success/failure rate tracking
+    - Availability percentage calculation
+    - Trend analysis over time
+  </Accordion>
+</AccordionGroup>
+
+## Understanding Test Results
+
+### Successful Connection Test
+
+A successful test shows:
+
+<Frame>
+  <img src="/images/successful-connection-test.png" alt="Successful connection test results" />
+</Frame>
+
+**Indicators of Success:**
+- ✅ Green status indicator
+- ✅ "Connection successful" message
+- ✅ Response time under 2 seconds
+- ✅ Workflow/scenario count retrieved
+- ✅ Platform information detected
+
+### Failed Connection Test
+
+Failed tests provide diagnostic information:
+
+**Common Failure Messages:**
+- "Authentication failed" - Invalid credentials
+- "Connection timeout" - Network or server issues
+- "Access denied" - Permission problems
+- "Server not found" - URL or configuration errors
+
+## Platform-Specific Testing
+
+### n8n Connection Testing
+
+<Tabs>
+  <Tab title="What Gets Tested">
+    **API Endpoints:**
+    - `/api/v1/workflows` - Workflow list retrieval
+    - `/api/v1/executions` - Recent execution data
+    - `/api/v1/credentials` - Credential validation
+    
+    **Validation Checks:**
+    - API key authentication
+    - Base URL accessibility
+    - n8n version compatibility
+    - Workflow read permissions
+  </Tab>
+  
+  <Tab title="Success Criteria">
+    **Required for Success:**
+    - HTTP 200 response from API endpoints
+    - Valid JSON response structure
+    - At least read access to workflows
+    - Response time under 10 seconds
+    
+    **Optional Success Indicators:**
+    - Workflow count > 0
+    - Recent execution data available
+    - n8n version information
+  </Tab>
+  
+  <Tab title="Troubleshooting n8n Tests">
+    **Common Issues:**
+    
+    | Error | Cause | Solution |
+    |-------|-------|----------|
+    | 401 Unauthorized | Invalid API key | Regenerate API key |
+    | 404 Not Found | Wrong base URL | Verify n8n instance URL |
+    | 403 Forbidden | Insufficient permissions | Check API key permissions |
+    | Timeout | Network/server issues | Check n8n server status |
+  </Tab>
+</Tabs>
+
+### Make.com Connection Testing
+
+<Tabs>
+  <Tab title="What Gets Tested">
+    **API Endpoints:**
+    - `/api/v2/scenarios` - Scenario list retrieval
+    - `/api/v2/users/me` - User information
+    - `/api/v2/teams/{id}` - Team information (if applicable)
+    
+    **Validation Checks:**
+    - API token authentication
+    - Region endpoint accessibility
+    - Team ID validation (if provided)
+    - Scenario read permissions
+  </Tab>
+  
+  <Tab title="Success Criteria">
+    **Required for Success:**
+    - HTTP 200 response from API endpoints
+    - Valid API token verification
+    - Correct region endpoint
+    - Response time under 5 seconds
+    
+    **Team-Specific Success:**
+    - Team ID validation (if provided)
+    - Team member permissions verified
+    - Team scenarios accessible
+  </Tab>
+  
+  <Tab title="Troubleshooting Make.com Tests">
+    **Common Issues:**
+    
+    | Error | Cause | Solution |
+    |-------|-------|----------|
+    | 401 Unauthorized | Invalid API token | Regenerate token |
+    | 404 Team Not Found | Wrong Team ID | Verify Team ID |
+    | 403 Access Denied | Insufficient permissions | Check token permissions |
+    | Wrong Region | Incorrect endpoint | Verify Make.com region |
+  </Tab>
+</Tabs>
+
+## Interpreting Test Metrics
+
+### Response Time Analysis
+
+<AccordionGroup>
+  <Accordion title="Response Time Ranges">
+    **Excellent**: < 500ms
+    - Optimal performance
+    - No action needed
+    
+    **Good**: 500ms - 2s
+    - Normal performance
+    - Monitor for trends
+    
+    **Warning**: 2s - 5s
+    - Slower than ideal
+    - Check network or server load
+    
+    **Poor**: > 5s
+    - Performance issues
+    - Investigate immediately
+  </Accordion>
+  
+  <Accordion title="Factors Affecting Response Time">
+    **Network Factors:**
+    - Internet connection speed
+    - Geographic distance to servers
+    - Network congestion
+    - Firewall/proxy processing
+    
+    **Platform Factors:**
+    - Server load and performance
+    - Database query complexity
+    - API rate limiting
+    - Maintenance or updates
+  </Accordion>
+</AccordionGroup>
+
+### Availability Metrics
+
+<CardGroup cols={3}>
+  <Card title="Excellent (99%+)" icon="check">
+    Highly reliable connection with minimal downtime
+  </Card>
+  <Card title="Good (95-99%)" icon="warning">
+    Generally stable with occasional issues
+  </Card>
+  <Card title="Poor (<95%)" icon="x">
+    Frequent connection problems requiring attention
+  </Card>
+</CardGroup>
+
+## Automated Monitoring Features
+
+### Health Check Dashboard
+
+Monitor connection health in real-time:
+
+<Frame>
+  <img src="/images/connection-health-dashboard.png" alt="Connection health monitoring dashboard" />
+</Frame>
+
+**Dashboard Elements:**
+- Real-time status indicators
+- Response time graphs
+- Availability percentage
+- Recent test history
+- Error frequency charts
+
+### Alert Notifications (Coming Soon)
+
+Get notified when connections fail:
+
+<AccordionGroup>
+  <Accordion title="Email Alerts">
+    **Trigger Conditions:**
+    - Connection test failures
+    - Response time threshold exceeded
+    - Availability drops below threshold
+    - Credential expiration warnings
+  </Accordion>
+  
+  <Accordion title="Slack Integration">
+    **Features:**
+    - Real-time connection status updates
+    - Automated incident reports
+    - Team collaboration on issues
+    - Status recovery notifications
+  </Accordion>
+</AccordionGroup>
+
+## Best Practices for Connection Testing
+
+### Regular Testing Schedule
+
+<CardGroup cols={2}>
+  <Card title="Daily Checks" icon="calendar">
+    Test critical connections daily, especially for production environments
+  </Card>
+  <Card title="Pre-Deployment" icon="rocket">
+    Always test connections before deploying new workflows or updates
+  </Card>
+  <Card title="Post-Maintenance" icon="wrench">
+    Test connections after platform maintenance or configuration changes
+  </Card>
+  <Card title="Credential Rotation" icon="refresh">
+    Test immediately after updating API keys or tokens
+  </Card>
+</CardGroup>
+
+### Proactive Monitoring
+
+<Steps>
+  <Step title="Set Baselines">
+    Establish normal response time and availability baselines for each connection
+  </Step>
+  <Step title="Monitor Trends">
+    Watch for gradual degradation in performance or reliability
+  </Step>
+  <Step title="Plan Maintenance">
+    Schedule connection updates during low-activity periods
+  </Step>
+  <Step title="Document Issues">
+    Keep records of connection problems and their resolutions
+  </Step>
+</Steps>
+
+## Troubleshooting Connection Issues
+
+### Systematic Troubleshooting Approach
+
+<AccordionGroup>
+  <Accordion title="Step 1: Verify Basics">
+    - Check if the platform is online and accessible
+    - Verify credentials haven't expired
+    - Confirm URL and configuration settings
+    - Test with a different browser or device
+  </Accordion>
+  
+  <Accordion title="Step 2: Check Permissions">
+    - Verify API key/token permissions
+    - Check if user account is still active
+    - Confirm organization/team access
+    - Review recent permission changes
+  </Accordion>
+  
+  <Accordion title="Step 3: Network Diagnostics">
+    - Test platform accessibility from different locations
+    - Check firewall and proxy settings
+    - Verify DNS resolution
+    - Test with direct IP if possible
+  </Accordion>
+  
+  <Accordion title="Step 4: Platform-Specific Checks">
+    **For n8n:**
+    - Verify n8n instance is running
+    - Check n8n logs for errors
+    - Confirm API is enabled in settings
+    - Test API endpoints manually
+    
+    **For Make.com:**
+    - Check Make.com status page
+    - Verify correct region selection
+    - Test API token in Make.com interface
+    - Check account standing and limits
+  </Accordion>
+</AccordionGroup>
+
+### Common Solutions
+
+<Tabs>
+  <Tab title="Credential Issues">
+    **Regenerate API Keys:**
+    1. Log into your platform (n8n/Make.com)
+    2. Navigate to API settings
+    3. Revoke old API key/token
+    4. Generate new credentials
+    5. Update connection in Opsmatic
+    6. Test the updated connection
+  </Tab>
+  
+  <Tab title="Network Issues">
+    **Check Connectivity:**
+    1. Ping the platform server
+    2. Test HTTPS connectivity
+    3. Check for proxy/firewall blocking
+    4. Try from different network
+    5. Contact IT if corporate network
+  </Tab>
+  
+  <Tab title="Permission Issues">
+    **Review Access:**
+    1. Check user account status
+    2. Verify API permissions
+    3. Confirm team/organization membership
+    4. Review recent access changes
+    5. Contact platform support if needed
+  </Tab>
+</Tabs>
+
+## Testing Multiple Connections
+
+### Bulk Testing
+
+For users with multiple connections:
+
+<Steps>
+  <Step title="Select Connections">
+    Choose multiple connections to test simultaneously
+  </Step>
+  <Step title="Run Batch Test">
+    Execute tests for all selected connections
+  </Step>
+  <Step title="Review Results">
+    Analyze results across all connections
+  </Step>
+  <Step title="Address Failures">
+    Focus on failed connections first
+  </Step>
+</Steps>
+
+### Performance Comparison
+
+Compare connection performance:
+
+<CardGroup cols={2}>
+  <Card title="Response Time Comparison" icon="clock">
+    Identify which connections are slower than others
+  </Card>
+  <Card title="Reliability Analysis" icon="shield">
+    Compare availability percentages across connections
+  </Card>
+</CardGroup>
+
+## Integration with Monitoring
+
+### Connection Health in Analytics
+
+Connection test results feed into:
+
+- **Availability Metrics**: Uptime calculations
+- **Performance Tracking**: Response time trends
+- **Reliability Reports**: Success/failure statistics
+- **Capacity Planning**: Load and usage analysis
+
+### Correlation with Workflow Performance
+
+Connection health directly impacts:
+
+- **Data Freshness**: How recent your monitoring data is
+- **Alert Accuracy**: Reliability of performance alerts
+- **Trend Analysis**: Quality of historical data
+- **Reporting Completeness**: Coverage of workflow analytics
+
+## Need Help?
+
+If you're experiencing persistent connection issues:
+
+<CardGroup cols={2}>
+  <Card title="Documentation" icon="book" href="/troubleshooting/connection-problems">
+    Check our detailed connection troubleshooting guide
+  </Card>
+  <Card title="Support" icon="headset" href="/troubleshooting/support">
+    Contact our support team for personalized assistance
+  </Card>
+</CardGroup>
+
+## What's Next?
+
+After mastering connection testing:
+
+<CardGroup cols={2}>
+  <Card title="Dashboard Overview" icon="gauge" href="/dashboard/overview">
+    Learn how to interpret your monitoring dashboard
+  </Card>
+  <Card title="Analytics Deep Dive" icon="chart-line" href="/analytics/overview">
+    Explore detailed workflow analytics and performance metrics
+  </Card>
+</CardGroup>

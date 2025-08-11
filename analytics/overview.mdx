@@ -1,0 +1,450 @@
+---
+title: 'Analytics Overview'
+description: 'Comprehensive workflow monitoring and performance analytics'
+---
+
+## What is Opsmatic Analytics?
+
+Opsmatic Analytics provides comprehensive monitoring and insights for your automation workflows across n8n and Make.com platforms. Get real-time performance metrics, historical trends, and actionable insights to optimize your automation efficiency.
+
+<Frame>
+  <img src="/images/analytics-dashboard.png" alt="Analytics dashboard overview" />
+</Frame>
+
+## Key Analytics Features
+
+<CardGroup cols={2}>
+  <Card title="Workflow Performance" icon="chart-line">
+    Track execution success rates, duration, and performance trends across all your workflows
+  </Card>
+  <Card title="Platform Availability" icon="server">
+    Monitor uptime, response times, and connection health for your automation platforms
+  </Card>
+  <Card title="Real-time Monitoring" icon="activity">
+    Get instant notifications and live feeds of workflow executions and system status
+  </Card>
+  <Card title="Historical Analysis" icon="clock">
+    Analyze performance trends over time with customizable date ranges and aggregation periods
+  </Card>
+</CardGroup>
+
+## Analytics Dashboard
+
+### Main Dashboard Components
+
+<AccordionGroup>
+  <Accordion title="Overview Cards">
+    **Key Metrics at a Glance:**
+    - Total executions (daily/weekly/monthly)
+    - Overall success rate percentage
+    - Average execution duration
+    - Platform availability percentage
+    
+    **Trend Indicators:**
+    - Up/down arrows showing performance changes
+    - Color-coded status indicators
+    - Percentage change from previous period
+  </Accordion>
+  
+  <Accordion title="Performance Charts">
+    **Execution Timeline:**
+    - Real-time execution activity
+    - Success vs failure visualization
+    - Peak usage period identification
+    
+    **Response Time Graphs:**
+    - Platform response time trends
+    - Latency analysis over time
+    - Performance comparison across platforms
+  </Accordion>
+  
+  <Accordion title="Activity Feeds">
+    **Recent Executions:**
+    - Live feed of workflow runs
+    - Status, duration, and error details
+    - Platform and workflow identification
+    
+    **System Events:**
+    - Connection status changes
+    - Platform maintenance notifications
+    - Performance alerts and warnings
+  </Accordion>
+</AccordionGroup>
+
+### Customizable Time Periods
+
+Analyze data across different timeframes:
+
+<Tabs>
+  <Tab title="Daily">
+    **Best for:**
+    - Real-time monitoring
+    - Daily operations review
+    - Immediate issue identification
+    
+    **Data Points:**
+    - Hourly execution counts
+    - Minute-level response times
+    - Real-time availability status
+  </Tab>
+  
+  <Tab title="Weekly">
+    **Best for:**
+    - Weekly performance reviews
+    - Trend identification
+    - Capacity planning
+    
+    **Data Points:**
+    - Daily aggregated metrics
+    - Weekly performance patterns
+    - Day-of-week analysis
+  </Tab>
+  
+  <Tab title="Monthly">
+    **Best for:**
+    - Long-term trend analysis
+    - Strategic planning
+    - Performance reporting
+    
+    **Data Points:**
+    - Weekly aggregated data
+    - Monthly performance summaries
+    - Growth and improvement tracking
+  </Tab>
+</Tabs>
+
+## Types of Analytics Data
+
+### Execution Analytics
+
+<AccordionGroup>
+  <Accordion title="Performance Metrics">
+    **Success Rate:**
+    - Percentage of successful executions
+    - Failure rate trends
+    - Error categorization
+    
+    **Execution Duration:**
+    - Average execution time
+    - Duration distribution
+    - Performance optimization opportunities
+    
+    **Throughput:**
+    - Executions per hour/day
+    - Peak usage periods
+    - Capacity utilization
+  </Accordion>
+  
+  <Accordion title="Error Analysis">
+    **Error Types:**
+    - Connection failures
+    - Workflow logic errors
+    - Timeout issues
+    - Platform-specific errors
+    
+    **Error Trends:**
+    - Error frequency over time
+    - Most common error patterns
+    - Recovery time analysis
+  </Accordion>
+  
+  <Accordion title="Resource Usage">
+    **n8n Metrics:**
+    - Node execution counts
+    - Data processing volume
+    - Memory and CPU utilization
+    
+    **Make.com Metrics:**
+    - Operations consumption
+    - Module execution statistics
+    - Data transfer volumes
+  </Accordion>
+</AccordionGroup>
+
+### Platform Health Analytics
+
+<AccordionGroup>
+  <Accordion title="Availability Monitoring">
+    **Uptime Tracking:**
+    - Platform availability percentage
+    - Downtime duration and frequency
+    - SLA compliance monitoring
+    
+    **Response Time Analysis:**
+    - API response times
+    - Performance degradation detection
+    - Geographic performance variations
+  </Accordion>
+  
+  <Accordion title="Connection Health">
+    **Status Monitoring:**
+    - Active/inactive connection ratios
+    - Authentication failure rates
+    - Connection stability metrics
+    
+    **Performance Tracking:**
+    - Data sync success rates
+    - API quota utilization
+    - Rate limiting incidents
+  </Accordion>
+</AccordionGroup>
+
+## Analytics Visualization
+
+### Chart Types
+
+<CardGroup cols={2}>
+  <Card title="Time Series Charts" icon="chart-line">
+    Track metrics over time with interactive line graphs showing trends and patterns
+  </Card>
+  <Card title="Status Indicators" icon="gauge">
+    Real-time status displays with color-coded health indicators and percentage metrics
+  </Card>
+  <Card title="Distribution Charts" icon="chart-bar">
+    Analyze data distribution with bar charts and histograms for performance analysis
+  </Card>
+  <Card title="Heat Maps" icon="grid">
+    Visualize activity patterns across time periods and workflow categories
+  </Card>
+</CardGroup>
+
+### Interactive Features
+
+<AccordionGroup>
+  <Accordion title="Drill-Down Analysis">
+    **Multi-Level Exploration:**
+    - Click on chart elements for detailed views
+    - Filter by specific workflows or connections
+    - Zoom into specific time ranges
+    
+    **Contextual Information:**
+    - Hover tooltips with detailed metrics
+    - Click-through to related data
+    - Cross-chart data correlation
+  </Accordion>
+  
+  <Accordion title="Data Filtering">
+    **Filter Options:**
+    - Platform type (n8n, Make.com)
+    - Connection status (active, error, inactive)
+    - Execution status (success, failure, running)
+    - Time range selection
+    
+    **Advanced Filtering:**
+    - Multiple filter combinations
+    - Saved filter presets
+    - Quick filter shortcuts
+  </Accordion>
+</AccordionGroup>
+
+## Data Collection and Processing
+
+### How Data is Collected
+
+<Steps>
+  <Step title="API Monitoring">
+    Opsmatic regularly polls your connected platforms for workflow and execution data
+  </Step>
+  <Step title="Real-time Sync">
+    Data is synchronized every 5-15 minutes depending on your plan and platform activity
+  </Step>
+  <Step title="Processing Pipeline">
+    Raw data is processed, aggregated, and stored for fast dashboard performance
+  </Step>
+  <Step title="Analytics Generation">
+    Metrics are calculated and trends are identified for dashboard display
+  </Step>
+</Steps>
+
+### Data Retention Policy
+
+<CardGroup cols={3}>
+  <Card title="Raw Data" icon="database">
+    **Execution Logs**: 30 days detailed
+    **Availability Metrics**: 7 days raw data
+  </Card>
+  <Card title="Aggregated Data" icon="chart-bar">
+    **Daily Summaries**: 1 year retention
+    **Weekly/Monthly**: 2 years retention
+  </Card>
+  <Card title="Historical Trends" icon="trend-up">
+    **Long-term Patterns**: Indefinite retention
+    **Performance Baselines**: Permanent storage
+  </Card>
+</CardGroup>
+
+## Setting Up Analytics Monitoring
+
+### Automatic Setup
+
+Analytics monitoring begins automatically when you:
+
+1. **Connect a Platform**: Add your first n8n or Make.com connection
+2. **Verify Connection**: Test and confirm the connection works
+3. **Wait for Data**: Allow 15-30 minutes for initial data collection
+4. **Access Analytics**: Navigate to the Analytics dashboard
+
+### Enhanced Monitoring (Advanced)
+
+For more detailed analytics, you can enable:
+
+<AccordionGroup>
+  <Accordion title="Webhook Integration">
+    **Real-time Updates:**
+    - Instant execution notifications
+    - Immediate error alerts
+    - Live performance tracking
+    
+    **Setup Requirements:**
+    - Advanced n8n configuration
+    - Make.com webhook setup
+    - Network accessibility
+  </Accordion>
+  
+  <Accordion title="Custom Metrics">
+    **Business-Specific Tracking:**
+    - Custom KPI definitions
+    - Industry-specific metrics
+    - Goal and threshold setting
+    
+    **Configuration:**
+    - Metric definition wizard
+    - Alerting rule setup
+    - Dashboard customization
+  </Accordion>
+</AccordionGroup>
+
+## Analytics Use Cases
+
+### Performance Optimization
+
+<AccordionGroup>
+  <Accordion title="Identify Bottlenecks">
+    **What to Look For:**
+    - Workflows with consistently long execution times
+    - High failure rates on specific workflows
+    - Platform response time degradation
+    
+    **Optimization Actions:**
+    - Optimize slow-running workflows
+    - Redesign error-prone automations
+    - Distribute load across peak times
+  </Accordion>
+  
+  <Accordion title="Capacity Planning">
+    **Growth Analysis:**
+    - Execution volume trends
+    - Resource utilization patterns
+    - Peak usage prediction
+    
+    **Planning Decisions:**
+    - Infrastructure scaling needs
+    - Platform plan upgrades
+    - Team capacity requirements
+  </Accordion>
+</AccordionGroup>
+
+### Business Intelligence
+
+<AccordionGroup>
+  <Accordion title="ROI Analysis">
+    **Metrics to Track:**
+    - Automation execution volume
+    - Time saved through automation
+    - Error reduction percentages
+    - Manual process elimination
+    
+    **Business Value:**
+    - Quantify automation benefits
+    - Justify infrastructure investments
+    - Demonstrate team productivity
+  </Accordion>
+  
+  <Accordion title="Operational Insights">
+    **Process Analysis:**
+    - Most active automation workflows
+    - Business process efficiency
+    - Seasonal usage patterns
+    - Department-wise automation adoption
+    
+    **Strategic Planning:**
+    - Identify automation opportunities
+    - Resource allocation decisions
+    - Technology investment priorities
+  </Accordion>
+</AccordionGroup>
+
+## Advanced Analytics Features
+
+### Custom Dashboards (Coming Soon)
+
+<Info>
+Custom dashboard creation is planned for future releases, allowing you to create personalized views of your analytics data.
+</Info>
+
+**Planned Features:**
+- Drag-and-drop dashboard builder
+- Custom widget creation
+- Team-specific dashboard sharing
+- Automated report generation
+
+### Alert and Notification System (Coming Soon)
+
+**Planned Alert Types:**
+- Performance threshold breaches
+- Connection failure notifications
+- Unusual activity pattern detection
+- Scheduled performance reports
+
+## Troubleshooting Analytics
+
+### Common Issues
+
+<AccordionGroup>
+  <Accordion title="Missing Data">
+    **Possible Causes:**
+    - New connection (data collection starting)
+    - Connection authentication issues
+    - Platform API limitations
+    - Network connectivity problems
+    
+    **Solutions:**
+    - Wait 15-30 minutes for new connections
+    - Test and fix connection issues
+    - Check platform API status
+    - Verify network accessibility
+  </Accordion>
+  
+  <Accordion title="Incorrect Metrics">
+    **Possible Causes:**
+    - Timezone mismatches
+    - Data sync delays
+    - Platform clock differences
+    - Caching issues
+    
+    **Solutions:**
+    - Verify timezone settings
+    - Allow time for data synchronization
+    - Refresh dashboard manually
+    - Clear browser cache
+  </Accordion>
+</AccordionGroup>
+
+## What's Next?
+
+Explore specific analytics features:
+
+<CardGroup cols={2}>
+  <Card title="Workflow Analytics" icon="workflow" href="/analytics/workflow-analytics">
+    Dive deep into individual workflow performance and optimization
+  </Card>
+  <Card title="Performance Metrics" icon="gauge" href="/analytics/performance-metrics">
+    Understand and interpret key performance indicators
+  </Card>
+  <Card title="Availability Monitoring" icon="server" href="/analytics/availability-monitoring">
+    Monitor platform health and connection reliability
+  </Card>
+  <Card title="Dashboard Guide" icon="dashboard" href="/dashboard/overview">
+    Learn to effectively use your monitoring dashboard
+  </Card>
+</CardGroup>

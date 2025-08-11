@@ -1,0 +1,156 @@
+---
+title: 'Getting Started with Authentication'
+description: 'Learn how authentication works in Opsmatic'
+---
+
+## Overview
+
+Opsmatic uses [Clerk](https://clerk.com) for authentication and user management, providing a secure and seamless login experience across multiple social providers and traditional email/password authentication.
+
+## Authentication Methods
+
+Opsmatic supports multiple authentication methods to suit your preferences:
+
+<CardGroup cols={2}>
+  <Card title="Social Logins" icon="users">
+    Sign in with Google, GitHub, or other social providers
+  </Card>
+  <Card title="Email & Password" icon="envelope">
+    Traditional email and password authentication
+  </Card>
+</CardGroup>
+
+## How Authentication Works
+
+### First-Time Setup
+
+When you first sign up for Opsmatic:
+
+<Steps>
+  <Step title="Choose Authentication Method">
+    Select your preferred login method (Google, GitHub, or email)
+  </Step>
+  <Step title="Complete Profile">
+    Provide basic information like your name and email
+  </Step>
+  <Step title="Account Verification">
+    Verify your email address if using email/password signup
+  </Step>
+  <Step title="Profile Sync">
+    Your profile is automatically synced to Opsmatic's database
+  </Step>
+</Steps>
+
+### User Profile Management
+
+Your user profile includes:
+
+- **Basic Information**: Name, email, profile picture
+- **Account Status**: Onboarding completion, verification status
+- **Organization Memberships**: Teams and organizations you belong to
+- **Connection Access**: Which automation platforms you can manage
+
+## Security Features
+
+<AccordionGroup>
+  <Accordion title="Multi-Factor Authentication">
+    Enable MFA through your Clerk account settings for enhanced security. Supported methods include:
+    - SMS verification
+    - Authenticator apps (Google Authenticator, Authy)
+    - Email verification
+  </Accordion>
+  
+  <Accordion title="Session Management">
+    Sessions are automatically managed with:
+    - Secure token handling
+    - Automatic session refresh
+    - Configurable session timeouts
+  </Accordion>
+  
+  <Accordion title="Password Security">
+    If using email/password authentication:
+    - Passwords are securely hashed
+    - Password strength requirements enforced
+    - Password reset functionality available
+  </Accordion>
+</AccordionGroup>
+
+## Profile Settings
+
+Once authenticated, you can manage your profile:
+
+### Accessing Profile Settings
+
+1. Click your profile avatar in the top-right corner
+2. Select **"Profile Settings"** from the dropdown menu
+3. Update your information as needed
+
+### Available Settings
+
+<Tabs>
+  <Tab title="Personal Info">
+    - First and last name
+    - Email address
+    - Profile picture
+    - Display preferences
+  </Tab>
+  
+  <Tab title="Security">
+    - Password management
+    - Multi-factor authentication
+    - Connected accounts
+    - Session management
+  </Tab>
+  
+  <Tab title="Notifications">
+    - Email preferences
+    - In-app notifications
+    - Workflow alerts (coming soon)
+  </Tab>
+</Tabs>
+
+## Troubleshooting Authentication
+
+### Common Issues
+
+<Warning>
+If you're experiencing login issues, try these troubleshooting steps:
+</Warning>
+
+#### Can't Sign In
+- Verify your email/password combination
+- Check if your account was created with a social provider
+- Clear browser cookies and cache
+- Try incognito/private browsing mode
+
+#### Email Not Received
+- Check spam/junk folder
+- Verify email address is correct
+- Wait a few minutes and try again
+- Contact support if issue persists
+
+#### Social Login Issues
+- Ensure you're using the same email address
+- Check social provider (Google/GitHub) permissions
+- Try disconnecting and reconnecting the account
+
+### Getting Help
+
+If you continue to experience authentication issues:
+
+<Card title="Contact Support" icon="headset">
+  Reach out to our support team at [support@opsmatic.com](mailto:support@opsmatic.com) or visit our [support page](/troubleshooting/support).
+</Card>
+
+## What's Next?
+
+After setting up authentication:
+
+<CardGroup cols={2}>
+  <Card title="Connect Platforms" icon="plug" href="/connections/overview">
+    Add your first n8n or Make.com connection
+  </Card>
+  <Card title="Join Organization" icon="users" href="/organizations/creating-organizations">
+    Create or join a team organization
+  </Card>
+</CardGroup>

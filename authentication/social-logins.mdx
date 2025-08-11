@@ -1,0 +1,240 @@
+---
+title: 'Social Logins'
+description: 'Sign in with Google, GitHub, and other social providers'
+---
+
+## Supported Social Providers
+
+Opsmatic supports multiple social login providers for quick and secure authentication:
+
+<CardGroup cols={2}>
+  <Card title="Google" icon="google">
+    Sign in with your Google account for seamless access
+  </Card>
+  <Card title="GitHub" icon="github">
+    Use your GitHub credentials to authenticate
+  </Card>
+</CardGroup>
+
+## How Social Logins Work
+
+### First-Time Social Login
+
+When you sign in with a social provider for the first time:
+
+<Steps>
+  <Step title="Select Provider">
+    Click on your preferred social login button (Google or GitHub)
+  </Step>
+  <Step title="Provider Authentication">
+    You'll be redirected to the provider's login page
+  </Step>
+  <Step title="Grant Permissions">
+    Approve the requested permissions for Opsmatic
+  </Step>
+  <Step title="Account Creation">
+    Your Opsmatic account is automatically created using your social profile
+  </Step>
+  <Step title="Profile Sync">
+    Basic information (name, email, avatar) is synced to your profile
+  </Step>
+</Steps>
+
+### Returning Users
+
+For subsequent logins:
+- Click your social provider button
+- You'll be automatically signed in if already authenticated with the provider
+- No additional permissions required
+
+## Google Login
+
+### What Information We Access
+
+When signing in with Google, Opsmatic requests access to:
+
+<AccordionGroup>
+  <Accordion title="Basic Profile Information">
+    - Full name
+    - Email address
+    - Profile picture
+    - Google account ID (for linking)
+  </Accordion>
+  
+  <Accordion title="Email Address">
+    - Primary email for account identification
+    - Used for notifications and account recovery
+  </Accordion>
+</AccordionGroup>
+
+### Google Account Requirements
+
+- Active Google account
+- Verified email address
+- Third-party app permissions enabled
+
+<Warning>
+If you're using a Google Workspace account, your administrator may need to approve third-party applications.
+</Warning>
+
+## GitHub Login
+
+### What Information We Access
+
+When signing in with GitHub, Opsmatic requests:
+
+<AccordionGroup>
+  <Accordion title="Public Profile">
+    - GitHub username
+    - Display name
+    - Profile picture
+    - Public email address
+  </Accordion>
+  
+  <Accordion title="Email Addresses">
+    - Primary email address
+    - Verified email addresses
+  </Accordion>
+</AccordionGroup>
+
+### GitHub Account Requirements
+
+- Active GitHub account (free or paid)
+- At least one verified email address
+- OAuth applications enabled
+
+## Managing Social Connections
+
+### Viewing Connected Accounts
+
+To see which social providers are connected to your account:
+
+1. Go to **Profile Settings**
+2. Click the **Security** tab
+3. View **Connected Accounts** section
+
+### Disconnecting Social Providers
+
+<Warning>
+Be careful when disconnecting social providers. Ensure you have alternative login methods configured.
+</Warning>
+
+<Steps>
+  <Step title="Access Security Settings">
+    Navigate to Profile Settings > Security
+  </Step>
+  <Step title="Find Connected Account">
+    Locate the social provider you want to disconnect
+  </Step>
+  <Step title="Disconnect">
+    Click **Disconnect** next to the provider
+  </Step>
+  <Step title="Confirm Action">
+    Confirm the disconnection in the popup dialog
+  </Step>
+</Steps>
+
+### Adding Additional Social Providers
+
+To connect additional social providers to your existing account:
+
+1. Go to **Profile Settings > Security**
+2. Click **Connect** next to available providers
+3. Authenticate with the social provider
+4. Grant necessary permissions
+
+## Troubleshooting Social Logins
+
+### Common Issues and Solutions
+
+<AccordionGroup>
+  <Accordion title="'Permission Denied' Error">
+    **Causes:**
+    - Third-party apps blocked in your social account settings
+    - Corporate/organizational restrictions
+    
+    **Solutions:**
+    - Enable third-party applications in your Google/GitHub settings
+    - Contact your IT administrator if using organizational accounts
+    - Try using a different browser or incognito mode
+  </Accordion>
+  
+  <Accordion title="Email Already in Use">
+    **Causes:**
+    - An Opsmatic account already exists with this email
+    - Email used with different authentication method
+    
+    **Solutions:**
+    - Try signing in with your existing authentication method
+    - Use account recovery if you forgot your password
+    - Contact support to merge accounts if needed
+  </Accordion>
+  
+  <Accordion title="Login Redirect Issues">
+    **Causes:**
+    - Browser blocking redirects
+    - Pop-up blockers interfering
+    - Cached authentication state
+    
+    **Solutions:**
+    - Allow pop-ups for opsmatic.com
+    - Clear browser cache and cookies
+    - Try a different browser
+    - Disable browser extensions temporarily
+  </Accordion>
+</AccordionGroup>
+
+### Provider-Specific Troubleshooting
+
+<Tabs>
+  <Tab title="Google Issues">
+    **Google Account Suspended:**
+    - Ensure your Google account is in good standing
+    - Check Google Account status page
+    
+    **Workspace Restrictions:**
+    - Contact your Google Workspace admin
+    - Request approval for Opsmatic OAuth application
+    
+    **Two-Factor Authentication:**
+    - Complete 2FA with Google before attempting Opsmatic login
+  </Tab>
+  
+  <Tab title="GitHub Issues">
+    **Private Email Settings:**
+    - Ensure you have at least one public or verified email
+    - Check GitHub email settings
+    
+    **OAuth App Access:**
+    - Review authorized OAuth applications in GitHub settings
+    - Ensure Opsmatic hasn't been revoked
+    
+    **Organization Restrictions:**
+    - Check if your GitHub organization blocks third-party access
+  </Tab>
+</Tabs>
+
+## Security Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Review Permissions" icon="shield-check">
+    Regularly review connected applications in your social provider settings
+  </Card>
+  <Card title="Keep Accounts Secure" icon="lock">
+    Enable 2FA on your social provider accounts for enhanced security
+  </Card>
+  <Card title="Monitor Access" icon="eye">
+    Check login notifications from your social providers
+  </Card>
+  <Card title="Use Strong Passwords" icon="key">
+    Ensure your social provider accounts use strong, unique passwords
+  </Card>
+</CardGroup>
+
+## Need Help?
+
+If you're still experiencing issues with social logins:
+
+<Card title="Get Support" icon="headset" href="/troubleshooting/support">
+  Contact our support team for personalized assistance with social login issues.
+</Card>

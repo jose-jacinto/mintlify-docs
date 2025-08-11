@@ -1,0 +1,461 @@
+---
+title: 'Creating Organizations'
+description: 'Set up team organizations for collaborative workflow monitoring'
+---
+
+## What are Organizations?
+
+Organizations in Opsmatic allow teams to collaborate on workflow monitoring, share connections, and manage access across multiple users. They're perfect for agencies, enterprises, and teams that need to monitor automation workflows together.
+
+<Frame>
+  <img src="/images/organization-overview.png" alt="Organization management interface" />
+</Frame>
+
+## Benefits of Organizations
+
+<CardGroup cols={2}>
+  <Card title="Centralized Monitoring" icon="building">
+    Monitor all team workflows from a single dashboard with shared visibility
+  </Card>
+  <Card title="Access Control" icon="shield">
+    Manage who can view, edit, and manage connections and analytics
+  </Card>
+  <Card title="Collaborative Analytics" icon="users">
+    Share insights and reports across team members with role-based access
+  </Card>
+  <Card title="Unified Billing" icon="credit-card">
+    Consolidate monitoring costs under a single organization subscription
+  </Card>
+</CardGroup>
+
+## Creating Your First Organization
+
+### Step-by-Step Setup
+
+<Steps>
+  <Step title="Access Organization Menu">
+    Click the organization dropdown in the top navigation (shows "Personal" by default)
+  </Step>
+  <Step title="Create New Organization">
+    Click **"Create Organization"** at the bottom of the dropdown
+  </Step>
+  <Step title="Enter Organization Details">
+    Fill in the required information:
+    - **Organization Name**: Your team or company name
+    - **Description**: Brief description of the organization's purpose
+    - **Website**: (Optional) Organization website URL
+  </Step>
+  <Step title="Configure Initial Settings">
+    Set up basic preferences:
+    - **Timezone**: Default timezone for the organization
+    - **Notification Preferences**: How the organization receives updates
+    - **Privacy Settings**: Visibility and access controls
+  </Step>
+  <Step title="Review and Create">
+    Review your settings and click **"Create Organization"**
+  </Step>
+</Steps>
+
+### Organization Information
+
+<AccordionGroup>
+  <Accordion title="Required Information">
+    **Organization Name**
+    - Must be unique across Opsmatic
+    - 3-50 characters, letters, numbers, spaces, and hyphens
+    - Cannot be changed after creation
+    
+    **Owner Information**
+    - You automatically become the organization owner
+    - Full administrative privileges
+    - Billing and subscription management
+  </Accordion>
+  
+  <Accordion title="Optional Information">
+    **Description**
+    - Brief explanation of organization purpose
+    - Visible to organization members
+    - Can be updated anytime
+    
+    **Website URL**
+    - Organization website or company page
+    - Displayed in member directory
+    - Optional but recommended
+  </Accordion>
+</AccordionGroup>
+
+## Organization Roles and Permissions
+
+### Available Roles
+
+<CardGroup cols={3}>
+  <Card title="Owner" icon="crown">
+    **Permissions:**
+    - Full administrative access
+    - Manage billing and subscriptions
+    - Add/remove members
+    - Delete organization
+    - All admin and member permissions
+  </Card>
+  <Card title="Admin" icon="shield">
+    **Permissions:**
+    - Manage connections
+    - Invite new members
+    - View all analytics
+    - Configure organization settings
+    - Cannot manage billing or delete organization
+  </Card>
+  <Card title="Member" icon="user">
+    **Permissions:**
+    - View organization dashboard
+    - Access assigned connections
+    - View analytics (limited)
+    - Cannot invite members or manage settings
+  </Card>
+</CardGroup>
+
+### Permission Matrix
+
+| Action | Owner | Admin | Member |
+|--------|-------|-------|--------|
+| View Dashboard | ✅ | ✅ | ✅ |
+| View Analytics | ✅ | ✅ | Limited |
+| Manage Connections | ✅ | ✅ | ❌ |
+| Invite Members | ✅ | ✅ | ❌ |
+| Manage Billing | ✅ | ❌ | ❌ |
+| Organization Settings | ✅ | Limited | ❌ |
+| Delete Organization | ✅ | ❌ | ❌ |
+
+## Organization Setup Best Practices
+
+### Naming Conventions
+
+<AccordionGroup>
+  <Accordion title="Company Organizations">
+    **Examples:**
+    - `Acme Corporation`
+    - `TechStart Solutions`
+    - `Global Marketing Inc`
+    
+    **Best Practices:**
+    - Use your official company name
+    - Avoid abbreviations unless commonly known
+    - Include legal entity type if relevant
+  </Accordion>
+  
+  <Accordion title="Team/Department Organizations">
+    **Examples:**
+    - `Marketing Team - Acme Corp`
+    - `DevOps - TechStart`
+    - `Operations Department`
+    
+    **Best Practices:**
+    - Include parent organization name
+    - Clearly identify the team or department
+    - Use consistent naming across teams
+  </Accordion>
+  
+  <Accordion title="Project Organizations">
+    **Examples:**
+    - `Project Phoenix - Q4 2024`
+    - `Client ABC - Automation Hub`
+    - `Product Launch Campaign`
+    
+    **Best Practices:**
+    - Include project name and timeline
+    - Reference client or product if applicable
+    - Consider archiving after project completion
+  </Accordion>
+</AccordionGroup>
+
+### Initial Configuration
+
+<Steps>
+  <Step title="Set Timezone">
+    Choose the timezone where most team members are located or where your primary operations occur
+  </Step>
+  <Step title="Configure Notifications">
+    Set up organization-wide notification preferences for:
+    - Member invitations
+    - Connection status changes
+    - Billing updates
+    - System announcements
+  </Step>
+  <Step title="Plan Member Structure">
+    Decide on:
+    - Who will be admins vs members
+    - How to organize team access
+    - Which connections to migrate from personal accounts
+  </Step>
+  <Step title="Establish Naming Conventions">
+    Create standards for:
+    - Connection naming
+    - Project organization
+    - Documentation practices
+  </Step>
+</Steps>
+
+## Migrating Personal Resources
+
+### Moving Connections to Organization
+
+<Warning>
+Connection migration transfers ownership from your personal account to the organization. This action cannot be undone.
+</Warning>
+
+<Steps>
+  <Step title="Review Personal Connections">
+    Go to your Connections page and identify which connections to migrate
+  </Step>
+  <Step title="Edit Connection">
+    Click "Edit" on the connection you want to migrate
+  </Step>
+  <Step title="Change Organization">
+    In the edit modal, change the Organization field from "Personal" to your new organization
+  </Step>
+  <Step title="Save Changes">
+    Click "Save" to complete the migration
+  </Step>
+  <Step title="Verify Access">
+    Confirm the connection now appears in the organization context
+  </Step>
+</Steps>
+
+### What Gets Migrated
+
+<AccordionGroup>
+  <Accordion title="Connections">
+    **Migrated:**
+    - Connection configuration and credentials
+    - Historical monitoring data
+    - Performance metrics and analytics
+    - Connection status and health data
+    
+    **Organization Benefits:**
+    - Team members can access the connection
+    - Shared monitoring and analytics
+    - Centralized management
+  </Accordion>
+  
+  <Accordion title="Analytics Data">
+    **Preserved:**
+    - All historical execution data
+    - Performance trends and metrics
+    - Availability statistics
+    - Custom dashboard configurations
+    
+    **Enhanced Access:**
+    - Team-wide visibility
+    - Collaborative analysis
+    - Organization-level reporting
+  </Accordion>
+</AccordionGroup>
+
+## Organization Dashboard
+
+### Dashboard Features
+
+Once created, your organization dashboard provides:
+
+<Frame>
+  <img src="/images/organization-dashboard.png" alt="Organization dashboard with team metrics" />
+</Frame>
+
+<CardGroup cols={2}>
+  <Card title="Team Overview" icon="users">
+    - Member count and roles
+    - Recent team activity
+    - Invitation status
+    - Access permissions summary
+  </Card>
+  <Card title="Connection Summary" icon="plug">
+    - Total organization connections
+    - Health status across all platforms
+    - Recent connection activity
+    - Performance metrics
+  </Card>
+  <Card title="Analytics Aggregation" icon="chart-line">
+    - Organization-wide workflow metrics
+    - Combined execution statistics
+    - Team performance insights
+    - Trend analysis across connections
+  </Card>
+  <Card title="Activity Feed" icon="activity">
+    - Recent team actions
+    - Connection changes
+    - Member activity
+    - System notifications
+  </Card>
+</CardGroup>
+
+### Customizing the Dashboard
+
+<AccordionGroup>
+  <Accordion title="Widget Configuration">
+    **Available Widgets:**
+    - Connection health matrix
+    - Team activity timeline
+    - Performance metrics cards
+    - Member status panel
+    
+    **Customization Options:**
+    - Drag and drop layout
+    - Widget size adjustment
+    - Data filtering and grouping
+    - Refresh interval settings
+  </Accordion>
+  
+  <Accordion title="Access Controls">
+    **Dashboard Visibility:**
+    - Owner: Full dashboard access
+    - Admin: Most widgets, limited billing info
+    - Member: Basic metrics, no admin widgets
+    
+    **Widget-Level Permissions:**
+    - Some widgets restricted by role
+    - Sensitive data filtered based on access
+    - Personal vs organization data separation
+  </Accordion>
+</AccordionGroup>
+
+## Multiple Organizations
+
+### Managing Multiple Organizations
+
+Users can be members of multiple organizations:
+
+<Steps>
+  <Step title="Switch Between Organizations">
+    Use the organization dropdown in the top navigation to switch context
+  </Step>
+  <Step title="Context Awareness">
+    The dashboard and connections update to show the selected organization's data
+  </Step>
+  <Step title="Role Variation">
+    Your role may differ across organizations (Owner in one, Member in another)
+  </Step>
+  <Step title="Personal vs Organization">
+    Always maintain access to your personal account alongside organizations
+  </Step>
+</Steps>
+
+### Organization Switching Best Practices
+
+<AccordionGroup>
+  <Accordion title="Context Awareness">
+    **Always Verify:**
+    - Which organization you're currently viewing
+    - Your role in the current organization
+    - Whether actions affect personal or organization resources
+    
+    **Visual Indicators:**
+    - Organization name in header
+    - Role badge next to profile
+    - Organization-specific color themes
+  </Accordion>
+  
+  <Accordion title="Action Confirmation">
+    **Before Making Changes:**
+    - Confirm the correct organization is selected
+    - Understand the impact of your actions
+    - Verify you have necessary permissions
+    
+    **Critical Actions:**
+    - Creating or editing connections
+    - Inviting new members
+    - Changing billing settings
+  </Accordion>
+</AccordionGroup>
+
+## Organization Limits and Quotas
+
+### Current Limits
+
+<CardGroup cols={2}>
+  <Card title="Free Tier" icon="gift">
+    - 5 organization members
+    - 2 organizations per user
+    - Basic analytics access
+    - Standard support
+  </Card>
+  <Card title="Paid Plans" icon="star">
+    - Up to 50 members (Pro)
+    - Unlimited members (Enterprise)
+    - Unlimited organizations
+    - Advanced analytics and reporting
+  </Card>
+</CardGroup>
+
+### Upgrading Organization Plans
+
+To increase limits or access advanced features:
+
+<Steps>
+  <Step title="Access Billing">
+    Go to Organization Settings > Billing (Owner only)
+  </Step>
+  <Step title="Compare Plans">
+    Review available plans and features
+  </Step>
+  <Step title="Upgrade">
+    Select and confirm your new plan
+  </Step>
+  <Step title="Verify Features">
+    Confirm new features are available after upgrade
+  </Step>
+</Steps>
+
+## Troubleshooting Organization Creation
+
+### Common Issues
+
+<AccordionGroup>
+  <Accordion title="Organization Name Taken">
+    **Error**: "Organization name already exists"
+    
+    **Solutions:**
+    - Try variations of your desired name
+    - Add location, department, or year identifiers
+    - Use your company's full legal name
+    - Contact support if you believe you own the name
+  </Accordion>
+  
+  <Accordion title="Cannot Create Organization">
+    **Error**: "Organization creation failed" or permission denied
+    
+    **Solutions:**
+    - Ensure your account is verified
+    - Check if you've reached organization limits
+    - Clear browser cache and try again
+    - Contact support for assistance
+  </Accordion>
+  
+  <Accordion title="Missing Features After Creation">
+    **Issue**: Expected features not available
+    
+    **Solutions:**
+    - Refresh the page completely
+    - Log out and log back in
+    - Verify your account plan supports the features
+    - Wait a few minutes for provisioning to complete
+  </Accordion>
+</AccordionGroup>
+
+## What's Next?
+
+After creating your organization:
+
+<CardGroup cols={2}>
+  <Card title="Invite Team Members" icon="user-plus" href="/organizations/managing-members">
+    Add your team to the organization and assign appropriate roles
+  </Card>
+  <Card title="Set Up Permissions" icon="shield" href="/organizations/permissions">
+    Configure access controls and security settings for your team
+  </Card>
+  <Card title="Migrate Connections" icon="arrow-right">
+    Move your personal connections to the organization for team access
+  </Card>
+  <Card title="Configure Billing" icon="credit-card" href="/billing/subscription-plans">
+    Set up organization billing and choose the right plan for your team
+  </Card>
+</CardGroup>

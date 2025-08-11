@@ -1,0 +1,133 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Opsmatic Documentation",
+  "logo": {
+    "dark": "/logo/dark.svg",
+    "light": "/logo/light.svg"
+  },
+  "favicon": "/favicon.ico",
+  "colors": {
+    "primary": "#621c5a",
+    "light": "#a21d57",
+    "dark": "#4a1544",
+    "anchors": {
+      "from": "#621c5a",
+      "to": "#a21d57"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "Support",
+      "url": "mailto:support@opsmatic.com"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Dashboard",
+    "url": "https://opsmatic.com/dashboard"
+  },
+  "tabs": [
+    {
+      "name": "API Reference",
+      "url": "api-reference"
+    }
+  ],
+  "anchors": [
+    {
+      "name": "Community",
+      "icon": "discord",
+      "url": "https://discord.gg/opsmatic"
+    },
+    {
+      "name": "Blog",
+      "icon": "newspaper",
+      "url": "https://opsmatic.com/blog"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Get Started",
+      "pages": [
+        "introduction",
+        "quickstart"
+      ]
+    },
+    {
+      "group": "Authentication",
+      "pages": [
+        "authentication/getting-started",
+        "authentication/social-logins",
+        "authentication/user-profile"
+      ]
+    },
+    {
+      "group": "Connections",
+      "pages": [
+        "connections/overview",
+        "connections/n8n-setup",
+        "connections/make-setup",
+        "connections/testing-connections"
+      ]
+    },
+    {
+      "group": "Organizations",
+      "pages": [
+        "organizations/creating-organizations",
+        "organizations/managing-members",
+        "organizations/permissions"
+      ]
+    },
+    {
+      "group": "Dashboard",
+      "pages": [
+        "dashboard/overview",
+        "dashboard/connection-stats",
+        "dashboard/health-monitoring"
+      ]
+    },
+    {
+      "group": "Analytics",
+      "pages": [
+        "analytics/overview",
+        "analytics/workflow-analytics",
+        "analytics/performance-metrics",
+        "analytics/availability-monitoring"
+      ]
+    },
+    {
+      "group": "Billing",
+      "pages": [
+        "billing/subscription-plans",
+        "billing/payment-methods",
+        "billing/invoicing"
+      ]
+    },
+    {
+      "group": "API Documentation",
+      "pages": [
+        "api-reference/introduction",
+        "api-reference/authentication",
+        "api-reference/connections",
+        "api-reference/analytics",
+        "api-reference/organizations"
+      ]
+    },
+    {
+      "group": "Support",
+      "pages": [
+        "troubleshooting/common-issues",
+        "troubleshooting/connection-problems",
+        "troubleshooting/support"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "twitter": "https://twitter.com/opsmatic",
+    "github": "https://github.com/opsmatic",
+    "linkedin": "https://www.linkedin.com/company/opsmatic"
+  },
+  "analytics": {
+    "posthog": {
+      "apiKey": "your-posthog-key"
+    }
+  }
+}

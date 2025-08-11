@@ -1,0 +1,393 @@
+---
+title: 'Common Issues'
+description: 'Solutions to frequently encountered problems in Opsmatic'
+---
+
+## Authentication Issues
+
+### Cannot Sign In
+
+<AccordionGroup>
+  <Accordion title="Forgot Password">
+    **Solution:**
+    1. Go to the login page
+    2. Click "Forgot Password?"
+    3. Enter your email address
+    4. Check your email for reset instructions
+    5. Follow the link to create a new password
+    
+    **Still not working?**
+    - Check spam/junk folder
+    - Ensure you're using the correct email
+    - Try a different browser
+  </Accordion>
+  
+  <Accordion title="Social Login Issues">
+    **Google/GitHub login not working:**
+    
+    **Solutions:**
+    - Clear browser cookies and cache
+    - Try incognito/private browsing mode
+    - Check if pop-ups are blocked
+    - Verify your social account is accessible
+    - Try disconnecting and reconnecting the account
+    
+    **Error: Email already in use**
+    - You may have created an account with a different method
+    - Try signing in with email/password instead
+    - Contact support to merge accounts
+  </Accordion>
+  
+  <Accordion title="Account Locked/Suspended">
+    **If your account appears to be locked:**
+    
+    1. Wait 15 minutes and try again
+    2. Clear browser data completely
+    3. Try from a different device/network
+    4. Contact support if issue persists
+    
+    **Common causes:**
+    - Too many failed login attempts
+    - Suspicious activity detection
+    - Account verification pending
+  </Accordion>
+</AccordionGroup>
+
+## Connection Problems
+
+### Connection Test Failures
+
+<AccordionGroup>
+  <Accordion title="n8n Connection Issues">
+    **"Invalid API Key" Error:**
+    
+    **Solutions:**
+    1. Verify API key is copied correctly (no spaces)
+    2. Check if API key has expired
+    3. Ensure API key has proper permissions
+    4. Re-generate API key in n8n settings
+    5. Test API key directly with n8n API
+    
+    **"Cannot Reach Server" Error:**
+    
+    **Solutions:**
+    1. Verify base URL is correct and accessible
+    2. Check if n8n instance is running
+    3. Test URL in browser
+    4. Check firewall/network settings
+    5. Ensure HTTPS is properly configured
+  </Accordion>
+  
+  <Accordion title="Make.com Connection Issues">
+    **"Authentication Failed" Error:**
+    
+    **Solutions:**
+    1. Verify API token is correct
+    2. Check token hasn't expired
+    3. Re-generate token in Make.com profile
+    4. Ensure account is active
+    
+    **"Wrong Region" Error:**
+    
+    **Solutions:**
+    1. Check your Make.com URL (eu2, us1, ap1)
+    2. Update region setting in connection
+    3. Test with different region options
+    
+    **"Team Not Found" Error:**
+    
+    **Solutions:**
+    1. Verify Team ID is correct (numeric only)
+    2. Ensure you're a member of the team
+    3. Try without Team ID first
+    4. Check team permissions
+  </Accordion>
+</AccordionGroup>
+
+### Data Not Appearing
+
+<AccordionGroup>
+  <Accordion title="No Workflow Data">
+    **Possible Causes:**
+    - New connection (data still syncing)
+    - Connection authentication issues
+    - No workflows in connected platform
+    - Insufficient API permissions
+    
+    **Solutions:**
+    1. Wait 15-30 minutes for initial sync
+    2. Test connection to verify it's working
+    3. Check if workflows exist in your platform
+    4. Verify API key permissions include workflow access
+    5. Refresh the dashboard manually
+  </Accordion>
+  
+  <Accordion title="Missing Recent Executions">
+    **Possible Causes:**
+    - Sync delay (normal 5-15 minute delay)
+    - Connection temporarily offline
+    - Platform API rate limiting
+    - Workflow hasn't actually executed
+    
+    **Solutions:**
+    1. Wait for next sync cycle (up to 15 minutes)
+    2. Check connection status
+    3. Verify workflow has executed in your platform
+    4. Test connection to ensure it's working
+    5. Check platform API status
+  </Accordion>
+</AccordionGroup>
+
+## Dashboard and Interface Issues
+
+### Page Loading Problems
+
+<AccordionGroup>
+  <Accordion title="Dashboard Won't Load">
+    **Symptoms:**
+    - Blank or spinning loading screen
+    - Error messages on dashboard
+    - Incomplete data display
+    
+    **Solutions:**
+    1. **Refresh the page** (Ctrl+F5 / Cmd+Shift+R)
+    2. **Clear browser cache and cookies**
+    3. **Try incognito/private browsing mode**
+    4. **Disable browser extensions temporarily**
+    5. **Try a different browser**
+    6. **Check internet connection**
+    
+    **Still not working?**
+    - Check browser developer console for errors
+    - Try from a different device
+    - Contact support with error details
+  </Accordion>
+  
+  <Accordion title="Slow Performance">
+    **Common Causes:**
+    - Large amounts of data being loaded
+    - Slow internet connection
+    - Browser performance issues
+    - Server-side processing delays
+    
+    **Optimization Tips:**
+    1. **Reduce date ranges** for analytics queries
+    2. **Filter data** to specific connections
+    3. **Close unnecessary browser tabs**
+    4. **Update your browser** to the latest version
+    5. **Clear browser cache** regularly
+  </Accordion>
+</AccordionGroup>
+
+### Data Display Issues
+
+<AccordionGroup>
+  <Accordion title="Incorrect Timestamps">
+    **Issue:** Execution times showing wrong timezone
+    
+    **Solutions:**
+    1. Check your profile timezone settings
+    2. Verify browser timezone is correct
+    3. Refresh the page after changing timezone
+    4. Clear browser cache if issue persists
+  </Accordion>
+  
+  <Accordion title="Charts Not Displaying">
+    **Possible Causes:**
+    - JavaScript disabled
+    - Ad blocker interference
+    - Browser compatibility issues
+    - Insufficient data for charts
+    
+    **Solutions:**
+    1. Enable JavaScript in browser
+    2. Disable ad blockers for opsmatic.com
+    3. Try a different browser
+    4. Ensure you have sufficient data (24+ hours)
+    5. Check browser developer console for errors
+  </Accordion>
+</AccordionGroup>
+
+## Organization Issues
+
+### Cannot Access Organization
+
+<AccordionGroup>
+  <Accordion title="Organization Not Visible">
+    **Possible Causes:**
+    - Not yet a member of the organization
+    - Invitation not accepted
+    - Removed from organization
+    - Organization deleted
+    
+    **Solutions:**
+    1. Check email for pending invitations
+    2. Ask organization owner to resend invitation
+    3. Verify you're logged in with correct account
+    4. Contact organization admin for assistance
+  </Accordion>
+  
+  <Accordion title="Permission Denied">
+    **Issue:** Cannot perform certain actions in organization
+    
+    **Explanation:**
+    - Different roles have different permissions
+    - Member < Admin < Owner hierarchy
+    - Some actions require specific role levels
+    
+    **Solutions:**
+    1. Check your role in organization settings
+    2. Ask admin/owner to adjust your permissions
+    3. Understand what actions your role allows
+  </Accordion>
+</AccordionGroup>
+
+## Analytics and Reporting Issues
+
+### Missing Analytics Data
+
+<AccordionGroup>
+  <Accordion title="No Analytics Showing">
+    **Requirements for Analytics:**
+    - At least one active connection
+    - Connection successfully tested
+    - Workflows exist and have executed
+    - Sufficient time for data collection (30+ minutes)
+    
+    **Troubleshooting Steps:**
+    1. Verify connections are active and tested
+    2. Check if workflows have executed recently
+    3. Wait at least 30 minutes after connecting
+    4. Refresh analytics dashboard
+    5. Check connection health status
+  </Accordion>
+  
+  <Accordion title="Incomplete Data">
+    **Possible Causes:**
+    - Recent connection setup
+    - Connection intermittently offline
+    - Platform API limitations
+    - Data sync in progress
+    
+    **Solutions:**
+    1. Allow more time for complete data collection
+    2. Check connection status history
+    3. Verify platform API is accessible
+    4. Test connections to ensure they're working
+  </Accordion>
+</AccordionGroup>
+
+## Billing and Subscription Issues
+
+### Payment Problems
+
+<AccordionGroup>
+  <Accordion title="Payment Failed">
+    **Common Causes:**
+    - Expired credit card
+    - Insufficient funds
+    - Card blocked by bank
+    - Incorrect billing information
+    
+    **Solutions:**
+    1. Update payment method in billing settings
+    2. Verify billing address is correct
+    3. Contact your bank about the transaction
+    4. Try a different payment method
+    5. Contact support for assistance
+  </Accordion>
+  
+  <Accordion title="Cannot Access Paid Features">
+    **Possible Issues:**
+    - Payment processing delay
+    - Subscription not activated
+    - Plan downgrade pending
+    
+    **Solutions:**
+    1. Check billing status in account settings
+    2. Wait up to 24 hours for payment processing
+    3. Verify subscription is active
+    4. Contact support if payment was successful but features unavailable
+  </Accordion>
+</AccordionGroup>
+
+## Browser-Specific Issues
+
+### Browser Compatibility
+
+<CardGroup cols={3}>
+  <Card title="Chrome" icon="chrome">
+    **Recommended Version:** 90+
+    **Common Issues:** Extensions blocking features
+    **Solution:** Try incognito mode
+  </Card>
+  <Card title="Firefox" icon="firefox">
+    **Recommended Version:** 88+
+    **Common Issues:** Strict privacy settings
+    **Solution:** Allow cookies and JavaScript
+  </Card>
+  <Card title="Safari" icon="safari">
+    **Recommended Version:** 14+
+    **Common Issues:** Tracking prevention
+    **Solution:** Disable for opsmatic.com
+  </Card>
+</CardGroup>
+
+### Browser Troubleshooting Steps
+
+<Steps>
+  <Step title="Clear Cache and Cookies">
+    Clear all browser data for opsmatic.com
+  </Step>
+  <Step title="Disable Extensions">
+    Temporarily disable all browser extensions
+  </Step>
+  <Step title="Try Incognito Mode">
+    Test if the issue persists in private browsing
+  </Step>
+  <Step title="Update Browser">
+    Ensure you're using the latest browser version
+  </Step>
+  <Step title="Try Different Browser">
+    Test with Chrome, Firefox, or Safari
+  </Step>
+</Steps>
+
+## General Troubleshooting Tips
+
+### Before Contacting Support
+
+<AccordionGroup>
+  <Accordion title="Gather Information">
+    **Helpful Details:**
+    - What were you trying to do?
+    - What error message appeared?
+    - When did the issue start?
+    - Does it happen consistently?
+    - What browser and version are you using?
+    - Screenshots of error messages
+  </Accordion>
+  
+  <Accordion title="Try Basic Solutions">
+    **Standard Troubleshooting:**
+    1. Refresh the page
+    2. Clear browser cache
+    3. Try incognito/private mode
+    4. Test with different browser
+    5. Check internet connection
+    6. Wait and try again later
+  </Accordion>
+</AccordionGroup>
+
+## Still Need Help?
+
+If these solutions don't resolve your issue:
+
+<CardGroup cols={2}>
+  <Card title="Contact Support" icon="headset" href="/troubleshooting/support">
+    Get personalized help from our support team
+  </Card>
+  <Card title="Connection Problems" icon="plug" href="/troubleshooting/connection-problems">
+    Detailed guide for connection-specific issues
+  </Card>
+</CardGroup>

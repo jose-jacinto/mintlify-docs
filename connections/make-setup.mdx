@@ -1,0 +1,500 @@
+---
+title: 'Make.com Setup Guide'
+description: 'Connect your Make.com scenarios to Opsmatic for comprehensive monitoring'
+---
+
+## Overview
+
+Make.com (formerly Integromat) is a powerful cloud-based automation platform that allows you to create sophisticated scenarios connecting various apps and services. Opsmatic provides comprehensive monitoring and analytics for your Make.com scenarios, helping you optimize performance and track execution success.
+
+<Frame>
+  <img src="/images/make-connection-setup.png" alt="Make.com connection setup" />
+</Frame>
+
+## Prerequisites
+
+Before connecting Make.com to Opsmatic, ensure you have:
+
+<CardGroup cols={2}>
+  <Card title="Make.com Account" icon="user">
+    Active Make.com account (Free, Core, Pro, or Teams plan)
+  </Card>
+  <Card title="API Access" icon="key">
+    Ability to generate API tokens in your Make.com profile
+  </Card>
+</CardGroup>
+
+## Supported Make.com Plans
+
+Opsmatic works with all Make.com plans:
+
+<CardGroup cols={4}>
+  <Card title="Free" icon="gift">
+    Basic monitoring with limited API calls
+  </Card>
+  <Card title="Core" icon="star">
+    Standard monitoring and analytics
+  </Card>
+  <Card title="Pro" icon="crown">
+    Advanced monitoring with full API access
+  </Card>
+  <Card title="Teams" icon="users">
+    Organization-level monitoring and team analytics
+  </Card>
+</CardGroup>
+
+## Creating a Make.com API Token
+
+### Personal API Token
+
+<Steps>
+  <Step title="Access Profile Settings">
+    Log into Make.com and click your profile icon in the top-right corner
+  </Step>
+  <Step title="Navigate to Profile">
+    Select **"Profile"** from the dropdown menu
+  </Step>
+  <Step title="Find API Section">
+    Scroll down to the **"API"** section in your profile
+  </Step>
+  <Step title="Generate Token">
+    Click **"Generate Token"** button
+  </Step>
+  <Step title="Copy Token">
+    Copy the generated API token immediately (it won't be shown again)
+  </Step>
+  <Step title="Store Securely">
+    Save the token in a secure location for use in Opsmatic
+  </Step>
+</Steps>
+
+### Team API Token (Teams Plan)
+
+For Make.com Teams plan users:
+
+<Steps>
+  <Step title="Access Team Settings">
+    Go to your team dashboard and click **"Team Settings"**
+  </Step>
+  <Step title="Navigate to API">
+    Select **"API"** from the team settings menu
+  </Step>
+  <Step title="Create Team Token">
+    Click **"Generate Team API Token"**
+  </Step>
+  <Step title="Configure Permissions">
+    Set appropriate permissions:
+    - **Read scenarios**: Required
+    - **Read executions**: Required
+    - **Read team data**: Recommended
+  </Step>
+  <Step title="Save Token">
+    Copy and securely store the team API token
+  </Step>
+</Steps>
+
+## Understanding Make.com Regions
+
+Make.com operates in different regions, and you need to specify the correct one:
+
+<Tabs>
+  <Tab title="Europe (EU)">
+    **Region**: `eu2.make.com` (default)
+    **API Base URL**: `https://eu2.make.com/api/v2`
+    **Covers**: Europe, Middle East, Africa
+  </Tab>
+  
+  <Tab title="United States (US)">
+    **Region**: `us1.make.com`
+    **API Base URL**: `https://us1.make.com/api/v2`
+    **Covers**: United States, Canada, Latin America
+  </Tab>
+  
+  <Tab title="Asia Pacific (AP)">
+    **Region**: `ap1.make.com`
+    **API Base URL**: `https://ap1.make.com/api/v2`
+    **Covers**: Asia, Pacific, Australia
+  </Tab>
+</Tabs>
+
+<Info>
+**How to Find Your Region**: Check the URL when you're logged into Make.com. It will show your region (e.g., `eu2.make.com`, `us1.make.com`).
+</Info>
+
+## Adding Make.com Connection in Opsmatic
+
+### Step-by-Step Setup
+
+<Steps>
+  <Step title="Navigate to Connections">
+    In Opsmatic, go to **Connections** from the sidebar menu
+  </Step>
+  <Step title="Add New Connection">
+    Click **"Add Connection"** button
+  </Step>
+  <Step title="Select Make.com">
+    Choose **Make** from the platform options
+  </Step>
+  <Step title="Enter Connection Details">
+    Fill in the required information:
+    
+    <AccordionGroup>
+      <Accordion title="Basic Information">
+        - **Service Name**: Descriptive name (e.g., "Production Make.com")
+        - **Organization**: Choose personal or organization context
+      </Accordion>
+      
+      <Accordion title="Authentication Settings">
+        - **API Token**: Your Make.com API token
+        - **Region**: Your Make.com region (eu2, us1, or ap1)
+        - **Team ID**: (Optional) For Teams plan users
+      </Accordion>
+    </AccordionGroup>
+  </Step>
+  <Step title="Test Connection">
+    Click **"Test Connection"** to verify the setup
+  </Step>
+  <Step title="Save Connection">
+    If the test succeeds, click **"Save Connection"**
+  </Step>
+</Steps>
+
+### Connection Configuration Details
+
+<Tabs>
+  <Tab title="Personal Account">
+    **Required Fields:**
+    - **API Token**: Your personal API token
+    - **Region**: Your Make.com region
+    
+    **Optional Fields:**
+    - **Team ID**: Leave blank for personal accounts
+    
+    **What You'll Monitor:**
+    - Personal scenarios
+    - Individual execution history
+    - Account-level analytics
+  </Tab>
+  
+  <Tab title="Team Account">
+    **Required Fields:**
+    - **API Token**: Team API token (recommended) or personal token
+    - **Team ID**: Your team's numeric ID
+    - **Region**: Your Make.com region
+    
+    **Finding Team ID:**
+    1. Go to Team Settings in Make.com
+    2. Look at the URL: `https://eu2.make.com/teams/12345/settings`
+    3. The Team ID is `12345` in this example
+    
+    **What You'll Monitor:**
+    - All team scenarios
+    - Team execution analytics
+    - Member activity (if permissions allow)
+  </Tab>
+</Tabs>
+
+## Verifying the Connection
+
+### Connection Test Results
+
+When you test your Make.com connection, you should see:
+
+<CardGroup cols={2}>
+  <Card title="Successful Connection" icon="check-circle">
+    - ✅ API authentication successful
+    - ✅ Scenario count retrieved
+    - ✅ Team/user information accessed
+    - ✅ Response time measured
+  </Card>
+  <Card title="Connection Information" icon="info">
+    - Number of accessible scenarios
+    - Account/team type detected
+    - Response time in milliseconds
+    - Region confirmation
+  </Card>
+</CardGroup>
+
+### Troubleshooting Connection Issues
+
+<AccordionGroup>
+  <Accordion title="Invalid API Token">
+    **Error**: "Authentication failed" or 401 Unauthorized
+    
+    **Solutions:**
+    - Verify API token is copied correctly (no extra spaces)
+    - Check if API token has expired
+    - Re-generate API token in Make.com profile
+    - Ensure token has necessary permissions
+  </Accordion>
+  
+  <Accordion title="Wrong Region">
+    **Error**: "Cannot reach server" or connection timeout
+    
+    **Solutions:**
+    - Verify your Make.com region (check URL when logged in)
+    - Try different region settings (eu2, us1, ap1)
+    - Ensure you're using the correct regional endpoint
+  </Accordion>
+  
+  <Accordion title="Team ID Issues">
+    **Error**: "Team not found" or 404 error
+    
+    **Solutions:**
+    - Verify Team ID is correct (numeric only)
+    - Ensure you're a member of the specified team
+    - Check if you have permissions to access team data
+    - Try without Team ID first (personal scenarios)
+  </Accordion>
+  
+  <Accordion title="Permission Denied">
+    **Error**: "Access denied" or 403 Forbidden
+    
+    **Solutions:**
+    - Check API token permissions in Make.com
+    - Ensure account is active and in good standing
+    - Verify team membership if using Team ID
+    - Contact Make.com support if permissions seem correct
+  </Accordion>
+</AccordionGroup>
+
+## What Data is Monitored
+
+Once connected, Opsmatic will monitor:
+
+### Scenario Information
+<AccordionGroup>
+  <Accordion title="Scenario Metadata">
+    - Scenario names and unique identifiers
+    - Creation and modification timestamps
+    - Active/inactive status
+    - Scenario complexity (module count)
+    - Folder organization
+    - Scheduling information
+  </Accordion>
+  
+  <Accordion title="Execution Data">
+    - Execution start and end times
+    - Success/failure/incomplete status
+    - Execution duration
+    - Operations consumed
+    - Error details and messages
+    - Data processed (records, size)
+  </Accordion>
+  
+  <Accordion title="Performance Metrics">
+    - Average execution time per scenario
+    - Success rate trends
+    - Operations usage patterns
+    - Peak execution periods
+    - Error frequency and types
+  </Accordion>
+</AccordionGroup>
+
+### Account/Team Analytics
+<AccordionGroup>
+  <Accordion title="Usage Monitoring">
+    - Operations consumption tracking
+    - Execution quota utilization
+    - Monthly usage trends
+    - Plan limit monitoring
+  </Accordion>
+  
+  <Accordion title="Team Analytics (Teams Plan)">
+    - Team member activity
+    - Scenario ownership
+    - Collaborative usage patterns
+    - Team-wide performance metrics
+  </Accordion>
+</AccordionGroup>
+
+## Advanced Configuration
+
+### API Rate Limiting
+
+Make.com has API rate limits that vary by plan:
+
+<Tabs>
+  <Tab title="Free Plan">
+    **Limits:**
+    - 100 API calls per hour
+    - Limited scenario access
+    
+    **Opsmatic Optimization:**
+    - Reduced sync frequency
+    - Prioritized data collection
+    - Essential metrics only
+  </Tab>
+  
+  <Tab title="Paid Plans">
+    **Limits:**
+    - 1,000+ API calls per hour
+    - Full scenario access
+    - Team data access (Teams plan)
+    
+    **Opsmatic Features:**
+    - Full monitoring capability
+    - Real-time sync options
+    - Comprehensive analytics
+  </Tab>
+</Tabs>
+
+### Custom Sync Settings
+
+<AccordionGroup>
+  <Accordion title="Sync Frequency">
+    **Options:**
+    - Every 5 minutes (Pro/Teams plans)
+    - Every 15 minutes (standard)
+    - Every 30 minutes (Free plan)
+    - Hourly (low activity)
+  </Accordion>
+  
+  <Accordion title="Data Filters">
+    **Scenario Filtering:**
+    - Include/exclude specific scenarios
+    - Filter by folder or organization
+    - Active scenarios only
+    
+    **Execution Filtering:**
+    - Date range limitations
+    - Status-based filtering (success/error)
+    - Operations threshold filtering
+  </Accordion>
+</AccordionGroup>
+
+## Understanding Make.com Executions
+
+### Execution States
+
+<CardGroup cols={3}>
+  <Card title="Success" icon="check">
+    Scenario completed successfully without errors
+  </Card>
+  <Card title="Error" icon="x">
+    Scenario failed due to errors or issues
+  </Card>
+  <Card title="Incomplete" icon="minus">
+    Scenario stopped before completion (timeout, manual stop)
+  </Card>
+</CardGroup>
+
+### Operations Tracking
+
+Make.com charges based on "operations" - each module execution:
+
+<AccordionGroup>
+  <Accordion title="Operation Counting">
+    - Each module = 1 operation
+    - Filters don't count as operations
+    - Routers multiply operations by routes
+    - Iterators multiply by items processed
+  </Accordion>
+  
+  <Accordion title="Cost Optimization">
+    Opsmatic helps identify:
+    - High-operation scenarios
+    - Inefficient routing patterns
+    - Unnecessary module executions
+    - Optimization opportunities
+  </Accordion>
+</AccordionGroup>
+
+## Security and Compliance
+
+### API Token Security
+
+<CardGroup cols={2}>
+  <Card title="Token Management" icon="key">
+    - Create dedicated tokens for Opsmatic
+    - Use descriptive names for identification
+    - Regularly rotate API tokens
+    - Monitor token usage and access
+  </Card>
+  <Card title="Permission Control" icon="shield">
+    - Grant minimum necessary permissions
+    - Use team tokens for team monitoring
+    - Regularly review token permissions
+    - Revoke unused or old tokens
+  </Card>
+</CardGroup>
+
+### Data Privacy
+
+<Info>
+**Privacy Commitment**: Opsmatic only accesses scenario metadata and execution logs. We never access scenario configuration details, credentials, or processed data content.
+</Info>
+
+## Monitoring Multiple Make.com Accounts
+
+For agencies or enterprises with multiple Make.com accounts:
+
+### Organization Strategy
+<AccordionGroup>
+  <Accordion title="Client Separation">
+    Create separate connections for:
+    - **Client A**: `Client A - Make.com Production`
+    - **Client B**: `Client B - Make.com Automation`
+    - **Internal**: `Internal Make.com - Company Tools`
+  </Accordion>
+  
+  <Accordion title="Environment Separation">
+    - **Production**: `Make.com Production - Live`
+    - **Development**: `Make.com Dev - Testing`
+    - **Staging**: `Make.com Staging - QA`
+  </Accordion>
+  
+  <Accordion title="Team Organization">
+    - **Marketing Team**: `Marketing - Make.com`
+    - **Sales Team**: `Sales - Make.com Automation`
+    - **Operations**: `Ops - Make.com Workflows`
+  </Accordion>
+</AccordionGroup>
+
+## Common Use Cases
+
+### Scenario Monitoring
+<AccordionGroup>
+  <Accordion title="E-commerce Automation">
+    Monitor scenarios handling:
+    - Order processing workflows
+    - Inventory management
+    - Customer communication
+    - Payment processing
+  </Accordion>
+  
+  <Accordion title="Marketing Automation">
+    Track performance of:
+    - Lead nurturing sequences
+    - Social media posting
+    - Email campaign automation
+    - CRM synchronization
+  </Accordion>
+  
+  <Accordion title="Business Process Automation">
+    Monitor workflows for:
+    - Document processing
+    - Approval workflows
+    - Data synchronization
+    - Reporting automation
+  </Accordion>
+</AccordionGroup>
+
+## What's Next?
+
+After successfully connecting your Make.com account:
+
+<CardGroup cols={2}>
+  <Card title="Test Your Connection" icon="check" href="/connections/testing-connections">
+    Learn how to properly test and validate your Make.com connection
+  </Card>
+  <Card title="View Analytics" icon="chart-line" href="/analytics/workflow-analytics">
+    Start monitoring your Make.com scenario performance and analytics
+  </Card>
+  <Card title="Set up n8n" icon="n8n" href="/connections/n8n-setup">
+    Add n8n connections for comprehensive automation monitoring
+  </Card>
+  <Card title="Dashboard Overview" icon="gauge" href="/dashboard/overview">
+    Explore your monitoring dashboard with Make.com data
+  </Card>
+</CardGroup>

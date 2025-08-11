@@ -1,13 +1,13 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Opsmatic - Documentation",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#621c5a",
+    "light": "#eab61f",
+    "dark": "#a21d57"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.ico",
   "navigation": {
     "tabs": [
       {
@@ -17,32 +17,75 @@
             "group": "Getting started",
             "pages": [
               "index",
-              "quickstart",
-              "development"
+              "quickstart"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Authentication",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "authentication/getting-started",
+              "authentication/social-logins",
+              "authentication/user-profile"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Connections",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "connections/overview",
+              "connections/n8n-setup",
+              "connections/make-setup",
+              "connections/testing-connections"
             ]
           },
           {
-            "group": "AI tools",
+            "group": "Organizations",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "organizations/creating-organizations",
+              "organizations/managing-members",
+              "organizations/permissions"
+            ]
+          },
+          {
+            "group": "Dashboard",
+            "pages": [
+              "dashboard/overview",
+              "dashboard/connection-stats",
+              "dashboard/health-monitoring"
+            ]
+          },
+          {
+            "group": "Analytics",
+            "pages": [
+              "analytics/overview",
+              "analytics/workflow-analytics",
+              "analytics/performance-metrics",
+              "analytics/availability-monitoring"
+            ]
+          },
+          {
+            "group": "Billing",
+            "pages": [
+              "billing/subscription-plans",
+              "billing/payment-methods",
+              "billing/invoicing"
+            ]
+          },
+          {
+            "group": "API Documentation",
+            "pages": [
+              "api-reference/introduction",
+              "api-reference/authentication",
+              "api-reference/connections",
+              "api-reference/analytics",
+              "api-reference/organizations"
+            ]
+          },
+          {
+            "group": "Support",
+            "pages": [
+              "troubleshooting/common-issues",
+              "troubleshooting/connection-problems",
+              "troubleshooting/support"
             ]
           }
         ]
@@ -70,39 +113,25 @@
     ],
     "global": {
       "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
+       
       ]
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/opsmatic_light.png",
+    "dark": "/logo/opsmatic_dark.png"
   },
   "navbar": {
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:hello@opsmatic.io"
       }
     ],
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "href": "https://opsmatic.io/dashboard"
     }
   },
   "contextual": {
@@ -119,9 +148,8 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/opsmatic_io",
+      "linkedin": "https://www.linkedin.com/company/opsmatic-io"
     }
   }
 }

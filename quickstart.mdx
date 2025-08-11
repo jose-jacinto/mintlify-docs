@@ -1,80 +1,210 @@
 ---
-title: "Quickstart"
-description: "Start building awesome documentation in minutes"
+title: 'Quickstart'
+description: 'Get started with Opsmatic in under 5 minutes'
 ---
 
-## Get started in three steps
+## Setup your account
 
-Get your documentation site running locally and make your first customization.
+Welcome to Opsmatic! This guide will help you set up your account and start monitoring your first automation workflow.
 
-### Step 1: Set up your local environment
+### Step 1: Sign up for Opsmatic
 
-<AccordionGroup>
-  <Accordion icon="copy" title="Clone your docs locally">
-    During the onboarding process, you created a GitHub repository with your docs content if you didn't already have one. You can find a link to this repository in your [dashboard](https://dashboard.mintlify.com).
-    
-    To clone the repository locally so that you can make and preview changes to your docs, follow the [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) guide in the GitHub docs.
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Start the preview server">
-    1. Install the Mintlify CLI: `npm i -g mint`
-    2. Navigate to your docs directory and run: `mint dev`
-    3. Open `http://localhost:3000` to see your docs live!
-    
-    <Tip>Your preview updates automatically as you edit files.</Tip>
-  </Accordion>
-</AccordionGroup>
+1. Visit [https://opsmatic.com](https://opsmatic.com)
+2. Click **"Sign up"** in the top right corner
+3. Choose your preferred sign-up method:
+   - **Google** - Sign in with your Google account
+   - **GitHub** - Sign in with your GitHub account  
+   - **Email** - Create account with email and password
 
-### Step 2: Deploy your changes
+<Frame>
+  <img src="/images/quickstart_0.jpeg" alt="Opsmatic signup screen" />
+</Frame>
 
-<AccordionGroup>
-  <Accordion icon="github" title="Install our GitHub app">
-    Install the Mintlify GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app).
-    
-    Our GitHub app automatically deploys your changes to your docs site, so you don't need to manage deployments yourself.
-</Accordion>
-<Accordion icon="palette" title="Update your site name and colors">
-    For a first change, let's update the name and colors of your docs site.
+### Step 2: Complete your profile
 
-    1. Open `docs.json` in your editor.
-    2. Change the `"name"` field to your project name.
-    3. Update the `"colors"` to match your brand.
-    4. Save and see your changes instantly at `http://localhost:3000`.
+After signing up, you'll be prompted to complete your profile:
 
-    <Tip>Try changing the primary color to see an immediate difference!</Tip>
-  </Accordion>
-</AccordionGroup>
+<Steps>
+  <Step title="Basic Information">
+    Provide your name and confirm your email address
+  </Step>
+  <Step title="Use Case">
+    Tell us how you plan to use Opsmatic (personal, team, enterprise)
+  </Step>
+  <Step title="Platform Selection">
+    Select which automation platforms you use (n8n, Make.com, or both)
+  </Step>
+</Steps>
 
-### Step 3: Go live
+## Connect your first platform
 
-<Accordion icon="rocket" title="Publish your docs">
-  1. Commit and push your changes.
-  2. Your docs will update and be live in moments!
-</Accordion>
+### Option A: Connect n8n
 
-## Next steps
+If you're using n8n, you'll need your instance URL and API key:
 
-Now that you have your docs running, explore these key features:
+<CodeGroup>
+```bash Self-hosted n8n
+# Your n8n instance URL
+https://your-n8n-instance.com
+
+# Generate API key in n8n Settings > API Keys
+n8n_api_key_123...
+```
+
+```bash n8n Cloud
+# Your n8n cloud URL  
+https://your-subdomain.app.n8n.cloud
+
+# Get API key from Account Settings > API Keys
+n8n_cloud_api_key_456...
+```
+</CodeGroup>
+
+<Steps>
+  <Step title="Navigate to Connections">
+    From your dashboard, click **"Add Your First Connection"**
+  </Step>
+  <Step title="Select n8n">
+    Choose **n8n** from the platform options
+  </Step>
+  <Step title="Enter Connection Details">
+    - **Service Name**: Give your connection a descriptive name
+    - **Base URL**: Your n8n instance URL
+    - **API Key**: Your n8n API key
+  </Step>
+  <Step title="Test Connection">
+    Click **"Test Connection"** to verify your credentials
+  </Step>
+  <Step title="Save">
+    Click **"Save Connection"** to complete the setup
+  </Step>
+</Steps>
+
+### Option B: Connect Make.com
+
+If you're using Make.com, you'll need your API token:
+
+<CodeGroup>
+```bash Make.com API Token
+# Get your API token from Make.com
+# Profile > API > Generate token
+make_api_token_789...
+```
+
+```bash Team Setup (Optional)
+# If using Make.com teams, provide Team ID
+Team ID: 12345
+Region: eu2.make.com (default)
+```
+</CodeGroup>
+
+<Steps>
+  <Step title="Navigate to Connections">
+    From your dashboard, click **"Add Your First Connection"**
+  </Step>
+  <Step title="Select Make.com">
+    Choose **Make** from the platform options
+  </Step>
+  <Step title="Enter Connection Details">
+    - **Service Name**: Give your connection a descriptive name
+    - **API Token**: Your Make.com API token
+    - **Team ID**: (Optional) If using Make.com teams
+    - **Region**: Select your Make.com region
+  </Step>
+  <Step title="Test Connection">
+    Click **"Test Connection"** to verify your credentials
+  </Step>
+  <Step title="Save">
+    Click **"Save Connection"** to complete the setup
+  </Step>
+</Steps>
+
+## Explore your dashboard
+
+Once your connection is established, you'll see your dashboard populate with data:
+
+<Frame>
+  <img src="/images/quickstart_1.jpeg" alt="Opsmatic dashboard with connection data" />
+</Frame>
+
+### Key Dashboard Elements:
 
 <CardGroup cols={2}>
-
-<Card title="Write Content" icon="pen-to-square" href="/essentials/markdown">
-  Learn MDX syntax and start writing your documentation.
-</Card>
-
-<Card title="Customize style" icon="palette" href="/essentials/settings">
-  Make your docs match your brand perfectly.
-</Card>
-
-<Card title="Add code examples" icon="square-code" href="/essentials/code">
-  Include syntax-highlighted code blocks.
-</Card>
-
-<Card title="API documentation" icon="code" href="/api-reference/introduction">
-  Auto-generate API docs from OpenAPI specs.
-</Card>
-
+  <Card title="Connection Stats" icon="chart-bar">
+    Overview of your connected platforms, active workflows, and execution counts
+  </Card>
+  <Card title="Health Monitoring" icon="heart-pulse">
+    Real-time status of your connections and platform availability
+  </Card>
+  <Card title="Recent Activity" icon="clock">
+    Live feed of workflow executions, successes, and errors
+  </Card>
+  <Card title="Performance Metrics" icon="gauge">
+    Success rates, execution times, and performance trends
+  </Card>
 </CardGroup>
 
-<Note>
-  **Need help?** See our [full documentation](https://mintlify.com/docs) or join our [community](https://mintlify.com/community).
-</Note>
+## Enable Analytics Monitoring
+
+To get the most out of Opsmatic, enable our comprehensive analytics monitoring:
+
+<Warning>
+Analytics monitoring requires additional setup for detailed execution tracking. This is optional but recommended for full workflow insights.
+</Warning>
+
+<Steps>
+  <Step title="Navigate to Analytics">
+    Click **"Analytics"** in the sidebar navigation
+  </Step>
+  <Step title="View Available Data">
+    You'll see execution logs, performance metrics, and availability data
+  </Step>
+  <Step title="Configure Monitoring">
+    For advanced monitoring, see our [Analytics Setup Guide](/analytics/overview)
+  </Step>
+</Steps>
+
+## What's Next?
+
+<CardGroup cols={2}>
+  <Card
+    title="Set up Organizations"
+    icon="users"
+    href="/organizations/creating-organizations"
+  >
+    Invite team members and manage permissions
+  </Card>
+  <Card
+    title="Configure Analytics"
+    icon="chart-line"
+    href="/analytics/overview"
+  >
+    Set up detailed workflow monitoring and reporting
+  </Card>
+  <Card
+    title="API Integration"
+    icon="code"
+    href="/api-reference/introduction"
+  >
+    Integrate Opsmatic with your existing tools
+  </Card>
+  <Card
+    title="Billing Setup"
+    icon="credit-card"
+    href="/billing/subscription-plans"
+  >
+    Choose a plan that fits your monitoring needs
+  </Card>
+</CardGroup>
+
+## Need Help?
+
+If you run into any issues during setup:
+
+- Check our [troubleshooting guide](/troubleshooting/common-issues)
+- Review [connection problems](/troubleshooting/connection-problems) 
+- Contact our [support team](/troubleshooting/support)
+
+<Info>
+**Pro Tip**: Start with a single connection to familiarize yourself with the dashboard, then add additional platforms and team members as needed.
+</Info>

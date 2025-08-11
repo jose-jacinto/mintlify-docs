@@ -1,0 +1,355 @@
+---
+title: 'Connections Overview'
+description: 'Learn how to connect and manage your automation platforms'
+---
+
+## What are Connections?
+
+Connections are the bridge between Opsmatic and your automation platforms. They allow Opsmatic to monitor, analyze, and provide insights about your workflows across different platforms.
+
+<Frame>
+  <img src="/images/connections-overview.png" alt="Connections overview dashboard" />
+</Frame>
+
+## Supported Platforms
+
+Opsmatic currently supports monitoring for two major automation platforms:
+
+<CardGroup cols={2}>
+  <Card title="n8n" icon="n8n" href="/connections/n8n-setup">
+    Monitor self-hosted and cloud n8n instances with comprehensive workflow tracking
+  </Card>
+  <Card title="Make.com" icon="make" href="/connections/make-setup">
+    Track Make.com scenarios and execution analytics
+  </Card>
+</CardGroup>
+
+## Connection Types
+
+### Personal Connections
+
+Personal connections are:
+- Owned by your individual user account
+- Visible only to you (unless shared with organizations)
+- Perfect for personal projects and testing
+
+### Organization Connections
+
+Organization connections are:
+- Owned by an organization/team
+- Visible to all organization members (with appropriate permissions)
+- Ideal for team collaboration and shared projects
+
+## Connection Management
+
+### Adding a New Connection
+
+<Steps>
+  <Step title="Navigate to Connections">
+    Click "Connections" in the sidebar or go to `/connections`
+  </Step>
+  <Step title="Click Add Connection">
+    Click the "Add Connection" button in the top-right corner
+  </Step>
+  <Step title="Choose Platform">
+    Select either n8n or Make.com from the available options
+  </Step>
+  <Step title="Configure Settings">
+    Enter the required credentials and configuration details
+  </Step>
+  <Step title="Test Connection">
+    Use the "Test Connection" button to verify your setup
+  </Step>
+  <Step title="Save">
+    Save your connection to start monitoring
+  </Step>
+</Steps>
+
+### Connection Information
+
+Each connection displays:
+
+<AccordionGroup>
+  <Accordion title="Basic Information">
+    - **Service Name**: Custom name you assigned
+    - **Platform Type**: n8n or Make.com indicator
+    - **Status**: Active, Inactive, or Error state
+    - **Creation Date**: When the connection was added
+  </Accordion>
+  
+  <Accordion title="Health Indicators">
+    - **Connection Status**: Real-time availability
+    - **Last Sync**: When data was last retrieved
+    - **Response Time**: Platform response performance
+    - **Error Count**: Recent connection issues
+  </Accordion>
+  
+  <Accordion title="Access Information">
+    - **Owner**: Who created the connection
+    - **Organization**: Which team owns it (if applicable)
+    - **Permissions**: Your access level to this connection
+  </Accordion>
+</AccordionGroup>
+
+## Connection Status
+
+Connections can have different status indicators:
+
+<CardGroup cols={3}>
+  <Card title="Active" icon="check-circle">
+    Connection is healthy and monitoring data
+  </Card>
+  <Card title="Error" icon="x-circle">
+    Connection has issues and needs attention
+  </Card>
+  <Card title="Inactive" icon="minus-circle">
+    Connection is paused or not responding
+  </Card>
+</CardGroup>
+
+### Status Details
+
+<Tabs>
+  <Tab title="Active Connections">
+    **Characteristics:**
+    - Successfully authenticating with the platform
+    - Regularly syncing workflow data
+    - Responding to health checks
+    - Processing analytics data
+    
+    **What You'll See:**
+    - Green status indicator
+    - Recent "Last Sync" timestamp
+    - Current workflow counts
+    - Performance metrics
+  </Tab>
+  
+  <Tab title="Error Connections">
+    **Common Causes:**
+    - Invalid or expired credentials
+    - Platform URL changes
+    - Network connectivity issues
+    - Permission or access problems
+    
+    **What You'll See:**
+    - Red status indicator
+    - Error message description
+    - Outdated "Last Sync" timestamp
+    - Limited or no workflow data
+    
+    **Resolution:**
+    - Check credentials and update if needed
+    - Verify platform URL is correct
+    - Test connection to identify issues
+    - Review platform-specific troubleshooting
+  </Tab>
+  
+  <Tab title="Inactive Connections">
+    **Reasons for Inactivity:**
+    - Platform temporarily unavailable
+    - Connection manually paused
+    - First-time setup not completed
+    - Scheduled maintenance
+    
+    **What You'll See:**
+    - Gray status indicator
+    - "Inactive" status badge
+    - No recent sync activity
+    - Historical data still available
+  </Tab>
+</Tabs>
+
+## Connection Security
+
+### Credential Storage
+
+Opsmatic securely stores your connection credentials:
+
+- **Encryption**: All API keys and tokens are encrypted at rest
+- **Access Control**: Only authorized users can view/edit connections
+- **Audit Logging**: Connection access and changes are logged
+- **Secure Transmission**: All communication uses HTTPS/TLS
+
+### Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Use Dedicated API Keys" icon="key">
+    Create specific API keys for Opsmatic rather than using personal tokens
+  </Card>
+  <Card title="Regular Key Rotation" icon="refresh">
+    Periodically rotate API keys and update connections
+  </Card>
+  <Card title="Minimal Permissions" icon="shield">
+    Grant only necessary permissions for monitoring functionality
+  </Card>
+  <Card title="Monitor Access" icon="eye">
+    Regularly review who has access to your connections
+  </Card>
+</CardGroup>
+
+## Managing Multiple Connections
+
+### Connection Organization
+
+For users with multiple connections:
+
+<AccordionGroup>
+  <Accordion title="Naming Conventions">
+    Use clear, descriptive names:
+    - `Production n8n - Main Server`
+    - `Development Make.com - Testing`
+    - `Client Project - Automation Hub`
+  </Accordion>
+  
+  <Accordion title="Organization Assignment">
+    Organize connections by:
+    - **Personal**: Your individual projects
+    - **Team**: Organization-specific connections
+    - **Environment**: Production, staging, development
+    - **Client**: Different client projects
+  </Accordion>
+  
+  <Accordion title="Status Monitoring">
+    Keep track of connection health:
+    - Regularly test connections
+    - Monitor error notifications
+    - Update credentials proactively
+    - Review sync frequency
+  </Accordion>
+</AccordionGroup>
+
+### Bulk Operations
+
+Manage multiple connections efficiently:
+
+- **Test All**: Test all connections at once
+- **Status Filter**: View connections by status
+- **Organization Filter**: Show connections for specific teams
+- **Platform Filter**: Display only n8n or Make.com connections
+
+## Connection Analytics
+
+### What Data is Collected
+
+For each connection, Opsmatic monitors:
+
+<Tabs>
+  <Tab title="Workflow Data">
+    - Workflow names and IDs
+    - Execution history and status
+    - Success and error rates
+    - Execution duration and performance
+    - Node count and complexity metrics
+  </Tab>
+  
+  <Tab title="Platform Health">
+    - API response times
+    - Availability and uptime
+    - Connection error frequency
+    - Data sync success rates
+  </Tab>
+  
+  <Tab title="Usage Metrics">
+    - Total executions per period
+    - Most active workflows
+    - Error patterns and trends
+    - Performance benchmarks
+  </Tab>
+</Tabs>
+
+### Data Retention
+
+<Info>
+**Data Retention Policy:**
+- **Execution Logs**: 30 days detailed, 1 year summary
+- **Availability Metrics**: 7 days raw, 1 year aggregated
+- **Analytics Aggregations**: 2 years for all periods
+- **Connection Metadata**: Retained as long as connection exists
+</Info>
+
+## Troubleshooting Connections
+
+### Common Issues
+
+<AccordionGroup>
+  <Accordion title="Authentication Failures">
+    **Symptoms:**
+    - Connection shows "Error" status
+    - "Invalid credentials" error message
+    - No data syncing
+    
+    **Solutions:**
+    - Verify API key/token is correct
+    - Check if credentials have expired
+    - Ensure proper permissions are granted
+    - Re-generate API keys if necessary
+  </Accordion>
+  
+  <Accordion title="Network Connectivity">
+    **Symptoms:**
+    - Timeouts during connection tests
+    - Intermittent connection failures
+    - "Cannot reach server" errors
+    
+    **Solutions:**
+    - Verify platform URL is correct
+    - Check firewall and network settings
+    - Test platform accessibility from your location
+    - Consider network proxy requirements
+  </Accordion>
+  
+  <Accordion title="Permission Issues">
+    **Symptoms:**
+    - Limited workflow data
+    - "Access denied" errors
+    - Missing workflows or executions
+    
+    **Solutions:**
+    - Review API key permissions
+    - Ensure user has appropriate platform access
+    - Check team/organization permissions
+    - Verify webhook configurations
+  </Accordion>
+</AccordionGroup>
+
+### Testing Connections
+
+Regularly test your connections to ensure they're working properly:
+
+<Steps>
+  <Step title="Access Connection">
+    Go to the Connections page and find your connection
+  </Step>
+  <Step title="Click Test">
+    Click the "Test" button on the connection card
+  </Step>
+  <Step title="Review Results">
+    Check the test results for:
+    - Connection success/failure
+    - Response time
+    - Accessible workflows count
+    - Any error messages
+  </Step>
+  <Step title="Address Issues">
+    If test fails, follow the error-specific troubleshooting steps
+  </Step>
+</Steps>
+
+## What's Next?
+
+Once you understand connection basics:
+
+<CardGroup cols={2}>
+  <Card title="Set up n8n" icon="n8n" href="/connections/n8n-setup">
+    Learn how to connect your n8n instances
+  </Card>
+  <Card title="Set up Make.com" icon="make" href="/connections/make-setup">
+    Connect your Make.com scenarios
+  </Card>
+  <Card title="Test Connections" icon="check" href="/connections/testing-connections">
+    Learn best practices for connection testing
+  </Card>
+  <Card title="View Analytics" icon="chart-line" href="/analytics/overview">
+    Start monitoring your workflow performance
+  </Card>
+</CardGroup>
